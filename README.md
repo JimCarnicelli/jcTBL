@@ -76,8 +76,8 @@ you should store your own data.
 
 ## Future goals
 
-I believe my code is solid, but I plan to test to see if there are any memory 
-leaks or bugs. Please do let me know if you find them.
+I've endeavored to make my code solid and especially free of memory leaks, 
+but please do let me know if you find any bugs.
 
 In the spirit of [fnTLB](https://www.cs.jhu.edu/~rflorian/fntbl/), I might 
 create a command line wrapper program at some point, but I'll admit I have 
