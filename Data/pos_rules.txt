@@ -1,0 +1,186 @@
+# Part of speech rules
+# Generated 9/8/2016 by Jim Carnicelli
+# - Baseline: 94.6937% success rate
+# - After training: 97.1332%
+# - Improvement: 2.57617%
+
+PoS-1:TO & PoS+0:NN => VB    # First seen on line 108, From template 2, Score: +491 -115 = 376
+PoS+0:NN & PoS+1:NNP => NNP    # First seen on line 162, From template 7, Score: +637 -379 = 258
+PoS-1:NNS & PoS+0:VB => VBP    # First seen on line 546, From template 2, Score: +230 -11 = 219
+PoS-1:MD & PoS+0:VBP => VB    # First seen on line 428, From template 2, Score: +206 -0 = 206
+PoS-1:MD & PoS+0:NN => VB    # First seen on line 357, From template 2, Score: +205 -0 = 205
+PoS-1:PRP & PoS+0:POS => VBZ    # First seen on line 5168, From template 2, Score: +148 -1 = 147
+PoS-1:VBD & PoS+0:VBD => VBN    # First seen on line 1523, From template 2, Score: +141 -12 = 129
+PoS-1:TO & PoS+0:VBP => VB    # First seen on line 5722, From template 2, Score: +126 -0 = 126
+PoS-1:PRP & PoS+0:VB => VBP    # First seen on line 2469, From template 2, Score: +137 -21 = 116
+PoS-1:PRP & PoS+0:VBN => VBD    # First seen on line 1066, From template 2, Score: +115 -5 = 110
+PoS+0:NNS & PoS+1:NNP => NNP    # First seen on line 1260, From template 7, Score: +177 -68 = 109
+PoS-1:NNP & PoS+0:VBN => VBD    # First seen on line 2423, From template 2, Score: +122 -14 = 108
+PoS-1:VBZ & PoS+0:VBD => VBN    # First seen on line 54, From template 2, Score: +122 -14 = 108
+PoS+0:JJR & PoS+1:JJ => RBR    # First seen on line 1420, From template 7, Score: +118 -20 = 98
+PoS-1:DT & PoS+0:VB => NN    # First seen on line 917, From template 2, Score: +100 -18 = 82
+PoS-1:NN & PoS+0:IN & PoS+1:VBZ => WDT    # First seen on line 3005, From template 3, Score: +86 -8 = 78
+PoS+0:IN & PoS+1:MD => WDT    # First seen on line 2867, From template 7, Score: +101 -27 = 74
+PoS+0:IN & PoS+1:VBD => WDT    # First seen on line 1584, From template 7, Score: +118 -44 = 74
+PoS-1:VBP & PoS+0:VBD => VBN    # First seen on line 256, From template 2, Score: +87 -18 = 69
+PoS+0:IN & PoS+1:'.' & PoS+2:SEP => RB    # First seen on line 8719, From template 8, Score: +76 -10 = 66
+PoS-1:VB & PoS+0:VBD => VBN    # First seen on line 1674, From template 2, Score: +82 -17 = 65
+PoS-1:IN & PoS+0:POS => VBZ    # First seen on line 1394, From template 2, Score: +62 -0 = 62
+PoS-1:IN & PoS+0:JJ & PoS+1:NNP => NNP    # First seen on line 955, From template 3, Score: +170 -111 = 59
+PoS+0:NN & PoS+1:NNP & PoS+2:NNP => NNP    # First seen on line 2621, From template 8, Score: +139 -81 = 58
+PoS+0:IN & PoS+1:VBP => WDT    # First seen on line 4950, From template 7, Score: +67 -10 = 57
+PoS-2:VBP & PoS-1:RB & PoS+0:VBP => VB    # First seen on line 533, From template 1, Score: +51 -0 = 51
+PoS-1:NN & PoS+0:VBN & PoS+1:DT => VBD    # First seen on line 5493, From template 3, Score: +44 -0 = 44
+PoS-2:NNS & PoS-1:RB & PoS+0:VB => VBP    # First seen on line 19066, From template 1, Score: +43 -0 = 43
+PoS-1:NNP & PoS+0:JJ & PoS+1:NNP => NNP    # First seen on line 928, From template 3, Score: +64 -21 = 43
+PoS-1:EX & PoS+0:POS => VBZ    # First seen on line 1830, From template 2, Score: +41 -0 = 41
+PoS-1:SEP & PoS+0:RBS => JJS    # First seen on line 3260, From template 2, Score: +41 -0 = 41
+PoS-1:JJ & PoS+0:VB => NN    # First seen on line 6890, From template 2, Score: +52 -12 = 40
+PoS+0:IN & PoS+1:VBZ => DT    # First seen on line 1393, From template 7, Score: +89 -49 = 40
+PoS-1:PRP & PoS+0:NNS => VBZ    # First seen on line 2067, From template 2, Score: +44 -5 = 39
+PoS-1:SEP & PoS+0:JJ & PoS+1:NNP => NNP    # First seen on line 3373, From template 3, Score: +55 -18 = 37
+PoS+0:JJ & PoS+1:JJR => RB    # First seen on line 4275, From template 7, Score: +39 -3 = 36
+PoS-2:MD & PoS-1:RB & PoS+0:VBP => VB    # First seen on line 3248, From template 1, Score: +34 -0 = 34
+PoS-2:IN & PoS-1:DT & PoS+0:JJ & PoS+1:NNP & PoS+2:NNP => NNP    # First seen on line 12279, From template 5, Score: +44 -10 = 34
+PoS-1:JJ & PoS+0:VBG => NN    # First seen on line 708, From template 2, Score: +63 -29 = 34
+PoS+0:JJR & PoS+1:RB => RBR    # First seen on line 1601, From template 7, Score: +35 -2 = 33
+PoS-2:SEP & PoS-1:NNP & PoS+0:NN => NNP    # First seen on line 3220, From template 1, Score: +52 -20 = 32
+PoS-2:NN & PoS-1:RB & PoS+0:VBN => VBD    # First seen on line 5439, From template 1, Score: +29 -0 = 29
+PoS-1:DT & PoS+0:JJ & PoS+1:IN => NN    # First seen on line 580, From template 3, Score: +51 -22 = 29
+PoS-1:',' & PoS+0:VBN & PoS+1:DT => VBD    # First seen on line 21694, From template 3, Score: +28 -0 = 28
+PoS-1:WP & PoS+0:VB => VBP    # First seen on line 25387, From template 2, Score: +27 -0 = 27
+PoS-2:VBZ & PoS-1:RB & PoS+0:VBP => VB    # First seen on line 17073, From template 1, Score: +27 -0 = 27
+PoS-2:MD & PoS-1:RB & PoS+0:NN => VB    # First seen on line 423, From template 1, Score: +26 -1 = 25
+PoS-1:',' & PoS+0:JJ & PoS+1:NNP => NNP    # First seen on line 6667, From template 3, Score: +50 -25 = 25
+PoS-2:VBZ & PoS-1:RB & PoS+0:VBD => VBN    # First seen on line 12332, From template 1, Score: +24 -0 = 24
+PoS-1:DT & PoS+0:VBD & PoS+1:NN => VBN    # First seen on line 12524, From template 3, Score: +23 -0 = 23
+PoS-2:VBD & PoS-1:RB & PoS+0:VBP => VB    # First seen on line 4907, From template 1, Score: +23 -0 = 23
+PoS+0:IN & PoS+1:JJ & PoS+2:IN => RB    # First seen on line 385, From template 8, Score: +78 -55 = 23
+PoS-1:MD & PoS+0:JJ => VB    # First seen on line 330, From template 2, Score: +27 -5 = 22
+PoS-1:WP & PoS+0:POS => VBZ    # First seen on line 4926, From template 2, Score: +21 -0 = 21
+PoS-1:NN & PoS+0:VBD & PoS+1:NNP & PoS+2:CD => VBN    # First seen on line 8765, From template 6, Score: +23 -2 = 21
+PoS-1:DT & PoS+0:RB & PoS+1:NN => JJ    # First seen on line 149, From template 3, Score: +25 -4 = 21
+PoS-1:VBN & PoS+0:VBD => VBN    # First seen on line 5391, From template 2, Score: +26 -5 = 21
+PoS-1:PRP & PoS+0:NN => VBP    # First seen on line 17374, From template 2, Score: +34 -13 = 21
+PoS-1:WP & PoS+0:VBN => VBD    # First seen on line 26387, From template 2, Score: +20 -0 = 20
+PoS-1:JJ & PoS+0:JJ & PoS+1:IN => NN    # First seen on line 4088, From template 3, Score: +25 -5 = 20
+PoS-1:NNS & PoS+0:VBN & PoS+1:DT => VBD    # First seen on line 3916, From template 3, Score: +19 -0 = 19
+PoS-1:NN & PoS+0:VB & PoS+1:IN => NN    # First seen on line 16936, From template 3, Score: +26 -7 = 19
+PoS-1:NN & PoS+0:VBN & PoS+1:NN => VBD    # First seen on line 6129, From template 3, Score: +21 -3 = 18
+PoS+0:DT & PoS+1:DT => PDT    # First seen on line 1762, From template 7, Score: +45 -27 = 18
+PoS-1:NN & PoS+0:VBN & PoS+1:JJ => VBD    # First seen on line 1881, From template 3, Score: +17 -0 = 17
+PoS-2:NNP & PoS-1:NNP & PoS+0:JJ & PoS+1:JJ => NNP    # First seen on line 885, From template 4, Score: +17 -0 = 17
+PoS-2:VBD & PoS-1:RB & PoS+0:VBD => VBN    # First seen on line 5454, From template 1, Score: +16 -0 = 16
+PoS-2:PRP & PoS-1:RB & PoS+0:VB => VBP    # First seen on line 24813, From template 1, Score: +19 -3 = 16
+PoS-1:VBG & PoS+0:VBD => VBN    # First seen on line 6900, From template 2, Score: +26 -10 = 16
+PoS-1:IN & PoS+0:IN & PoS+1:'$' & PoS+2:CD => RB    # First seen on line 1159, From template 6, Score: +35 -19 = 16
+PoS-2:VBP & PoS-1:RB & PoS+0:VBD => VBN    # First seen on line 20972, From template 1, Score: +16 -1 = 15
+PoS-1:MD & PoS+0:NNP => VB    # First seen on line 6327, From template 2, Score: +17 -2 = 15
+PoS-1:NNP & PoS+0:JJ & PoS+1:VBD => NNP    # First seen on line 886, From template 3, Score: +20 -5 = 15
+PoS+0:JJ & PoS+1:VBD => NN    # First seen on line 8896, From template 7, Score: +59 -31 = 28
+PoS-2:NNP & PoS-1:RB & PoS+0:VBN => VBD    # First seen on line 5628, From template 1, Score: +14 -0 = 14
+PoS-2:IN & PoS-1:DT & PoS+0:NNS & PoS+1:CC & PoS+2:NNP => NNP    # First seen on line 1122, From template 5, Score: +15 -1 = 14
+PoS+0:JJ & PoS+1:VBN & PoS+2:IN => RB    # First seen on line 17921, From template 8, Score: +19 -5 = 14
+PoS-1:WDT & PoS+0:VBN => VBD    # First seen on line 3603, From template 2, Score: +13 -0 = 13
+PoS-1:CC & PoS+0:VBN & PoS+1:DT => VBD    # First seen on line 16244, From template 3, Score: +15 -2 = 13
+PoS-2:VBD & PoS-1:RB & PoS+0:NN => VB    # First seen on line 5857, From template 1, Score: +18 -5 = 13
+PoS-2:',' & PoS-1:NNP & PoS+0:NN => NNP    # First seen on line 5622, From template 1, Score: +33 -20 = 13
+PoS-1:SEP & PoS+0:WDT & PoS+1:MD & PoS+2:VB => DT    # First seen on line 30235, From template 6, Score: +12 -0 = 12
+PoS-1:NNS & PoS+0:IN & PoS+1:VB => WDT    # First seen on line 31661, From template 3, Score: +19 -7 = 12
+PoS-1:WDT & PoS+0:VB => VBP    # First seen on line 1863, From template 2, Score: +27 -7 = 20
+PoS-1:IN & PoS+0:VB => NN    # First seen on line 24183, From template 2, Score: +34 -14 = 20
+PoS+0:EX & PoS+1:'.' => RB    # First seen on line 58118, From template 7, Score: +11 -0 = 11
+PoS+0:POS & PoS+1:'''''' => ''''''    # First seen on line 1692, From template 7, Score: +11 -0 = 11
+PoS-1:NNS & PoS+0:VBN & PoS+1:NNS => VBD    # First seen on line 7937, From template 3, Score: +11 -0 = 11
+PoS-2:MD & PoS-1:PRP & PoS+0:VBP => VB    # First seen on line 37238, From template 1, Score: +11 -0 = 11
+PoS-2:IN & PoS-1:DT & PoS+0:JJ & PoS+1:'.' & PoS+2:SEP => NN    # First seen on line 29135, From template 5, Score: +13 -2 = 11
+PoS-1:NNP & PoS+0:JJ & PoS+1:',' => NNP    # First seen on line 19899, From template 3, Score: +18 -7 = 11
+PoS-1:',' & PoS+0:IN & PoS+1:',' => RB    # First seen on line 3657, From template 3, Score: +10 -0 = 10
+PoS-1:CC & PoS+0:JJ & PoS+1:POS => NNP    # First seen on line 26283, From template 3, Score: +10 -0 = 10
+PoS-1:TO & PoS+0:JJ & PoS+1:DT => VB    # First seen on line 5250, From template 3, Score: +10 -0 = 10
+PoS-1:NNS & PoS+0:VBN & PoS+1:JJ => VBD    # First seen on line 18556, From template 3, Score: +11 -1 = 10
+PoS+0:JJ & PoS+1:MD & PoS+2:VB => NN    # First seen on line 7957, From template 8, Score: +13 -3 = 10
+PoS-1:',' & PoS+0:IN & PoS+1:RB & PoS+2:IN => RB    # First seen on line 2338, From template 6, Score: +13 -3 = 10
+PoS-1:TO & PoS+0:VBN => VB    # First seen on line 15720, From template 2, Score: +15 -5 = 10
+PoS-2:VB & PoS-1:PRP & PoS+0:VBP => VB    # First seen on line 17937, From template 1, Score: +15 -5 = 10
+PoS+0:RBR & PoS+1:NNS => JJR    # First seen on line 2233, From template 7, Score: +9 -0 = 9
+PoS-1:TO & PoS+0:NNP & PoS+1:DT => VB    # First seen on line 98839, From template 3, Score: +9 -0 = 9
+PoS-2:',' & PoS-1:WDT & PoS+0:NN => VBP    # First seen on line 66539, From template 1, Score: +9 -0 = 9
+PoS-1:NN & PoS+0:VBN & PoS+1:NNS => VBD    # First seen on line 35886, From template 3, Score: +10 -1 = 9
+PoS-1:NNS & PoS+0:VBN & PoS+1:NN => VBD    # First seen on line 17567, From template 3, Score: +10 -1 = 9
+PoS+0:JJ & PoS+1:POS => NN    # First seen on line 9152, From template 7, Score: +12 -3 = 9
+PoS+0:'PRP$' & PoS+1:IN => PRP    # First seen on line 56639, From template 7, Score: +8 -0 = 8
+PoS+0:JJ & PoS+1:RBR & PoS+2:JJ => RB    # First seen on line 44238, From template 8, Score: +8 -0 = 8
+PoS-2:',' & PoS-1:WDT & PoS+0:NNS => VBZ    # First seen on line 20607, From template 1, Score: +8 -0 = 8
+PoS-2:NNS & PoS-1:WP & PoS+0:NN => VBP    # First seen on line 12702, From template 1, Score: +8 -0 = 8
+PoS-2:PRP & PoS-1:RB & PoS+0:VBN => VBD    # First seen on line 9227, From template 1, Score: +8 -0 = 8
+PoS-2:NNP & PoS-1:CC & PoS+0:JJ & PoS+1:NNP => NNP    # First seen on line 80019, From template 4, Score: +10 -2 = 8
+PoS-1:JJ & PoS+0:JJ & PoS+1:'.' & PoS+2:SEP => NN    # First seen on line 3370, From template 6, Score: +13 -5 = 8
+PoS-1:'PRP$' & PoS+0:VB => NN    # First seen on line 4109, From template 2, Score: +7 -0 = 7
+PoS-1:MD & PoS+0:IN & PoS+1:TO & PoS+2:VB => VB    # First seen on line 2566, From template 6, Score: +7 -0 = 7
+PoS-1:NN & PoS+0:VBN & PoS+1:'PRP$' => VBD    # First seen on line 43652, From template 3, Score: +7 -0 = 7
+PoS-2:'.' & PoS-1:SEP & PoS+0:JJR & PoS+1:IN => RBR    # First seen on line 44596, From template 4, Score: +7 -0 = 7
+PoS-2:DT & PoS-1:RB & PoS+0:VBD => VBN    # First seen on line 221, From template 1, Score: +7 -0 = 7
+PoS-1:SEP & PoS+0:WDT & PoS+1:VBD => DT    # First seen on line 66337, From template 3, Score: +8 -1 = 7
+PoS-2:',' & PoS-1:IN & PoS+0:RB & PoS+1:'$' & PoS+2:CD => IN    # First seen on line 20183, From template 5, Score: +8 -1 = 7
+PoS-2:SEP & PoS-1:IN & PoS+0:IN & PoS+1:NN => DT    # First seen on line 77489, From template 4, Score: +8 -1 = 7
+PoS-1:SEP & PoS+0:IN & PoS+1:NN & PoS+2:VBZ => DT    # First seen on line 8076, From template 6, Score: +9 -2 = 7
+PoS-1:SEP & PoS+0:JJ & PoS+1:CC => NNP    # First seen on line 35131, From template 3, Score: +9 -2 = 7
+PoS-1:VBD & PoS+0:VB & PoS+1:IN => VBN    # First seen on line 16931, From template 3, Score: +9 -2 = 7
+PoS-2:',' & PoS-1:DT & PoS+0:JJ & PoS+1:NNP & PoS+2:NN => NNP    # First seen on line 2677, From template 5, Score: +11 -4 = 7
+PoS-1:DT & PoS+0:VBG & PoS+1:IN => NN    # First seen on line 18292, From template 3, Score: +12 -5 = 7
+PoS+0:NN & PoS+1:NNP & PoS+2:NNP => NNP    # First seen on line 72543, From template 8, Score: +13 -6 = 7
+PoS-1:NN & PoS+0:VBZ & PoS+1:'.' => NNS    # First seen on line 8625, From template 3, Score: +16 -9 = 7
+PoS-2:IN & PoS-1:DT & PoS+0:JJ & PoS+1:',' => NN    # First seen on line 17978, From template 4, Score: +16 -9 = 7
+PoS-1:NN & PoS+0:NNS & PoS+1:DT => VBZ    # First seen on line 1155, From template 3, Score: +19 -12 = 7
+PoS+0:JJR & PoS+1:IN & PoS+2:VBN => RBR    # First seen on line 8056, From template 8, Score: +6 -0 = 6
+PoS+0:JJS & PoS+1:VBN => RBS    # First seen on line 34904, From template 7, Score: +6 -0 = 6
+PoS-1:',' & PoS+0:VBN & PoS+1:'PRP$' => VBD    # First seen on line 45481, From template 3, Score: +6 -0 = 6
+PoS-1:IN & PoS+0:JJ & PoS+1:NNPS & PoS+2:NNP => NNP    # First seen on line 89352, From template 6, Score: +6 -0 = 6
+PoS-1:NN & PoS+0:VB & PoS+1:NNS => NN    # First seen on line 42358, From template 3, Score: +6 -0 = 6
+PoS-1:NNS & PoS+0:VBN & PoS+1:'PRP$' => VBD    # First seen on line 15976, From template 3, Score: +6 -0 = 6
+PoS-1:POS & PoS+0:JJ & PoS+1:IN => NN    # First seen on line 4097, From template 3, Score: +6 -0 = 6
+PoS-1:RB & PoS+0:NNS & PoS+1:DT => VBZ    # First seen on line 398, From template 3, Score: +6 -0 = 6
+PoS-1:SEP & PoS+0:IN & PoS+1:NN & PoS+2:VBD => DT    # First seen on line 8052, From template 6, Score: +6 -0 = 6
+PoS-1:SEP & PoS+0:VBD & PoS+1:IN => VBN    # First seen on line 97578, From template 3, Score: +6 -0 = 6
+PoS-2:DT & PoS-1:NNP & PoS+0:NN & PoS+1:CC & PoS+2:NNP => NNP    # First seen on line 1298, From template 5, Score: +6 -0 = 6
+PoS+0:RBR & PoS+1:NN => JJR    # First seen on line 14108, From template 7, Score: +7 -1 = 6
+PoS-1:TO & PoS+0:JJ & PoS+1:IN => VB    # First seen on line 5758, From template 3, Score: +7 -1 = 6
+PoS-1:VBN & PoS+0:WDT => IN    # First seen on line 14140, From template 2, Score: +7 -1 = 6
+PoS-1:VBD & PoS+0:JJ & PoS+1:IN & PoS+2:'$' => NN    # First seen on line 20044, From template 6, Score: +8 -2 = 6
+PoS-2:',' & PoS-1:CC & PoS+0:VBN => VBD    # First seen on line 39215, From template 1, Score: +8 -2 = 6
+PoS-1:NNS & PoS+0:NN & PoS+1:DT => VBP    # First seen on line 55910, From template 3, Score: +9 -3 = 6
+PoS-1:NN & PoS+0:DT & PoS+1:VBZ => WDT    # First seen on line 21535, From template 3, Score: +10 -3 = 7
+PoS-1:JJ & PoS+0:VBP => NN    # First seen on line 28662, From template 2, Score: +10 -4 = 6
+PoS-1:NNP & PoS+0:NN & PoS+1:NN & PoS+2:NN => NNP    # First seen on line 3446, From template 6, Score: +21 -15 = 6
+PoS-3:IN & PoS-2:NNP & PoS-1:NNP & PoS+0:NN => NNP    # First seen on line 16230, From template 0, Score: +33 -26 = 7
+PoS+0:EX & PoS+1:IN => RB    # First seen on line 28909, From template 7, Score: +5 -0 = 5
+PoS-1:',' & PoS+0:NNS & PoS+1:DT => VBZ    # First seen on line 6935, From template 3, Score: +5 -0 = 5
+PoS-1:CC & PoS+0:RBR & PoS+1:JJ & PoS+2:NN => JJR    # First seen on line 20120, From template 6, Score: +5 -0 = 5
+PoS-1:DT & PoS+0:RB & PoS+1:NNS => JJ    # First seen on line 38300, From template 3, Score: +5 -0 = 5
+PoS-1:DT & PoS+0:VBG & PoS+1:',' => NN    # First seen on line 80162, From template 3, Score: +5 -0 = 5
+PoS-1:DT & PoS+0:VBP & PoS+1:TO & PoS+2:VB => NN    # First seen on line 18129, From template 6, Score: +5 -0 = 5
+PoS-1:DT & PoS+0:VBP & PoS+1:VBN => NN    # First seen on line 28441, From template 3, Score: +5 -0 = 5
+PoS-1:NN & PoS+0:VBN & PoS+1:PRP => VBD    # First seen on line 2443, From template 3, Score: +5 -0 = 5
+PoS-1:NNS & PoS+0:IN & PoS+1:RB & PoS+2:VB => WDT    # First seen on line 26024, From template 6, Score: +5 -0 = 5
+PoS-1:VB & PoS+0:RB & PoS+1:NN => JJ    # First seen on line 62265, From template 3, Score: +5 -0 = 5
+PoS-2:NN & PoS-1:RB & PoS+0:NNS & PoS+1:IN => VBZ    # First seen on line 22235, From template 4, Score: +5 -0 = 5
+PoS-2:NNP & PoS-1:RB & PoS+0:NNS => VBZ    # First seen on line 7521, From template 1, Score: +5 -0 = 5
+PoS-2:NNP & PoS-1:VBZ & PoS+0:NN & PoS+1:DT => VBG    # First seen on line 90885, From template 4, Score: +5 -0 = 5
+PoS-2:SEP & PoS-1:'``' & PoS+0:RBS & PoS+1:NNS => JJS    # First seen on line 64339, From template 4, Score: +5 -0 = 5
+PoS-3:',' & PoS-2:CC & PoS-1:NNP & PoS+0:NN => NNP    # First seen on line 97896, From template 0, Score: +5 -0 = 5
+PoS-1:CC & PoS+0:NN & PoS+1:DT => VB    # First seen on line 40185, From template 3, Score: +6 -1 = 5
+PoS-1:CC & PoS+0:WDT & PoS+1:VBD => DT    # First seen on line 31417, From template 3, Score: +6 -1 = 5
+PoS-1:DT & PoS+0:IN & PoS+1:',' => NN    # First seen on line 29002, From template 3, Score: +6 -1 = 5
+PoS-1:JJ & PoS+0:VBZ & PoS+1:IN => NNS    # First seen on line 68567, From template 3, Score: +6 -1 = 5
+PoS-1:MD & PoS+0:VBN => VB    # First seen on line 53976, From template 2, Score: +6 -1 = 5
+PoS-1:NNP & PoS+0:DT & PoS+1:VBZ => WDT    # First seen on line 74225, From template 3, Score: +6 -1 = 5
+PoS-1:SEP & PoS+0:PDT & PoS+1:DT => DT    # First seen on line 32776, From template 3, Score: +6 -1 = 5
+PoS-1:VBZ & PoS+0:RB & PoS+1:NN & PoS+2:IN => JJ    # First seen on line 17705, From template 6, Score: +6 -1 = 5
+PoS-1:DT & PoS+0:NNP & PoS+1:IN & PoS+2:NNS => NN    # First seen on line 16099, From template 6, Score: +7 -2 = 5
+PoS-1:NNPS & PoS+0:VB => VBP    # First seen on line 18137, From template 2, Score: +7 -2 = 5
+PoS-2:IN & PoS-1:NNP & PoS+0:NN & PoS+1:POS => NNP    # First seen on line 47314, From template 4, Score: +7 -2 = 5
+PoS-2:NNP & PoS-1:NNP & PoS+0:NNS & PoS+1:TO & PoS+2:VB => VBZ    # First seen on line 1948, From template 5, Score: +7 -2 = 5
+PoS-2:VB & PoS-1:NNS & PoS+0:VBP => VB    # First seen on line 1801, From template 1, Score: +7 -2 = 5
+PoS-1:DT & PoS+0:IN & PoS+1:NN => JJ    # First seen on line 37842, From template 3, Score: +8 -3 = 5
+PoS-3:SEP & PoS-2:NNP & PoS-1:NNP & PoS+0:NN => NNP    # First seen on line 14458, From template 0, Score: +12 -7 = 5
