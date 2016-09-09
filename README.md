@@ -1,7 +1,10 @@
 # jcTBL
+
 Implementation of Eric Brill's "transformation-based learning" algorithm
 
+
 ## Nuts 'n' bolts
+
 This C++ code is intended to be used as a static library. The demo program is 
 largely my own hacking to test out what I've built.
 
@@ -19,6 +22,7 @@ The library code can be found in the /jcTBL subdirectory in /include and
 /jcTBL/include/jctbl.hpp, which brings in all the other include files.
 
 The jctbl.hpp include file's header is loaded with background and advice.
+
 
 ## About this project
 
@@ -69,6 +73,7 @@ I purposely decided not to include support for reading and writing files
 because I didn't want to prejudice you, the developer, as to how and where 
 you should store your own data.
 
+
 ## Future goals
 
 I believe my code is solid, but I plan to test to see if there are any memory 
@@ -84,6 +89,7 @@ I wrote this to be completely cross-platform, though I built it
 specifically on OS X. I'd welcome having others build this on Windows, 
 Linux or other systems and submitting their work so this can be 
 distributed as a stand-alone library for all systems.
+
 
 ## License and credit
 
