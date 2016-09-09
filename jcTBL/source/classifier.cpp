@@ -44,6 +44,9 @@ jctbl::classifier::~classifier() {
     for (auto it = rules.begin(); it != rules.end(); it++) {
         delete *it;
     }
+    for (auto it = rule_templates.begin(); it != rule_templates.end(); it++) {
+        delete *it;
+    }
 }
 
 

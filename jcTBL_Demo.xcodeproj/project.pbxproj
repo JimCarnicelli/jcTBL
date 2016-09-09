@@ -45,7 +45,7 @@
 			isa = PBXGroup;
 			children = (
 				38D97F171D830D3200324A9F /* libjcTBL.a */,
-				38D97E971D7F13A600324A9F /* Demo */,
+				38D97E981D7F13C800324A9F /* main.cpp */,
 				38D97E8E1D7F134500324A9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,14 +56,6 @@
 				38D97E8D1D7F134500324A9F /* jcTBL_Demo */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		38D97E971D7F13A600324A9F /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				38D97E981D7F13C800324A9F /* main.cpp */,
-			);
-			name = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
