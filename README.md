@@ -77,6 +77,7 @@ library into their own projects.
 
 ## License and credit
 
+This code was written entirely by [Jim Carnicelli](http://JimCarnicelli.com). 
 Although I hope someday to earn money using my own creation, I've given this 
 project an [MIT license](https://en.wikipedia.org/wiki/MIT_License), meaning
 you are free to use it pretty much however you want. That said, I would 
