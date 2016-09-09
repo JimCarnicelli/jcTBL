@@ -3,7 +3,7 @@ Implementation of Eric Brill's "transformation-based learning" algorithm
 
 ## Nuts 'n' bolts
 This C++ code is intended to be used as a static library. The demo program is 
-largely myown hacking to test out what I've built.
+largely my own hacking to test out what I've built.
 
 I built this using Xcode 7.3.1 on a late 2013 iMac. I'm using the libc++
 (LLVM C++ standard library with C++11 support) library option and 
