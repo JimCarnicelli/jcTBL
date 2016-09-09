@@ -5,12 +5,14 @@ Implementation of Eric Brill's "transformation-based learning" algorithm
 This C++ code is intended to be used as a static library. The demo program is 
 largely my own hacking to test out what I've built.
 
-I built this using Xcode 7.3.1 on a late 2013 iMac. I'm using the libc++
-(LLVM C++ standard library with C++11 support) library option and 
-the GNU++11 [-std=gnu++11] language dialect. This don't have reliances on 
-Boost or any other libraries outside the STL. I haven't tried compiling 
-this on Windows, Linux, or any other systems, but I see no reason why it
-wouldn't, given an appropriate makefile.
+I built this using Xcode 7.3.1 on a late 2013 iMac. I'm using the 
+GNU++11 [-std=gnu++11] language dialect and the libc++
+(LLVM C++ standard library with C++11 support) library. This don't 
+have reliances on Boost or any other libraries outside the 
+[STL](https://en.wikipedia.org/wiki/Standard_Template_Library). 
+I haven't tried compiling this on Windows, Linux, or any other 
+systems, but I see no reason why it wouldn't, given an appropriate 
+makefile.
 
 The library code can be found in the /jcTBL subdirectory in /include and 
 /source. You'll want to include the libjcTBL.a static library and include 
@@ -74,6 +76,11 @@ create a command line wrapper program at some point, but I'll admit I have
 little desire to right now. That seems like it would take a lot of time to 
 do justice to and might mislead developers about how best to integrate this 
 library into their own projects.
+
+I wrote this to be completely cross-platform, though I built it 
+specifically on OS X. I'd welcome having others build this on Windows, 
+Linux or other systems and submitting their work so this can be 
+distributed as a stand-alone library for all systems.
 
 ## License and credit
 
