@@ -23,7 +23,8 @@ The jctbl.hpp include file's header is loaded with background and advice.
 ## About this project
 
 I'm resuming my
-[AI](https://en.wikipedia.org/wiki/Artificial_intelligence)/[NLP](https://en.wikipedia.org/wiki/Natural_language_processing) 
+[AI](https://en.wikipedia.org/wiki/Artificial_intelligence) /
+[NLP](https://en.wikipedia.org/wiki/Natural_language_processing) 
 research. In studying different kinds of 
 [classifier systems](https://en.wikipedia.org/wiki/Learning_classifier_system)
 I came across 
@@ -31,14 +32,14 @@ I came across
 concept of 
 "[transformation-based learning](http://dl.acm.org/citation.cfm?id=1073336.1073342&coll=GUIDE&dl=ACM)"
 (TLB). There are various TLB implementations out there, including
-[fnTLB](https://www.cs.jhu.edu/~rflorian/fntbl/)
-Sadly, I was unable to compile this code and struggled to understand its 
-structure. Moreover, I learn better by doing, so I decided to build my 
-own from scratch using various documents describing the algorithm and
-enhancements by various researchers along the way.
+[fnTLB](https://www.cs.jhu.edu/~rflorian/fntbl/). 
+Sadly, I was unable to compile their code and struggled to understand 
+its structure. Moreover, I learn better by doing, so I decided to build 
+my own from scratch using various documents describing the algorithm 
+and enhancements by other researchers along the way.
 
 After creating a first prototype, I decided to start from scratch with a
-cleaner implementation with an eye toward applying this to a variety of 
+cleaner implementation and an eye toward applying this to a variety of 
 practical tasks, including 
 [tokenization](https://en.wikipedia.org/wiki/Lexical_analysis#Tokenization),
 [part of speech (PoS) tagging](https://en.wikipedia.org/wiki/Part-of-speech_tagging),
@@ -48,8 +49,8 @@ and more. As of my first commit date (9/9/2016), I have only applied this
 to a first task of PoS tagging using training and test sets drawn from the
 [Penn Treebank](http://www.cis.upenn.edu/~treebank/).
 
-At heart, this is a direct implementation of Brill's original algorithm,
-as he defined. As he and others have noted, the training process can be 
+At heart, this is a direct implementation of Brill's original algorithm as 
+he described it. As he and others have noted, the training process can be 
 quite slow. I took inspiration from work by Mark Hepple
 ([Independence and commitment: assumptions for rapid training and execution 
 of rule-based POS taggers](https://aclweb.org/anthology/P/P00/P00-1036.pdf))
@@ -60,7 +61,9 @@ support for multithreaded training. If you have 4 processor cores, you can
 set cls.training_threads to 4 and when you call cls.train(), it will keep 
 all of them busy and run about 4 times faster. Set cls.use_best_rules to 10 
 and training will run about 10 times faster with potentially minimal loss of
-accuracy (or increase in number) of training rules devised.
+accuracy (or increase in number) of training rules devised. I also added 
+in many low-level features like early bailing, hashing, and modest caching 
+to optimize speed and memory usage.
 
 I purposely decided not to include support for reading and writing files 
 because I didn't want to prejudice you, the developer, as to how and where 
@@ -69,7 +72,7 @@ you should store your own data.
 ## Future goals
 
 I believe my code is solid, but I plan to test to see if there are any memory 
-leaks or bugs.
+leaks or bugs. Please do let me know if you find them.
 
 In the spirit of [fnTLB](https://www.cs.jhu.edu/~rflorian/fntbl/), I might 
 create a command line wrapper program at some point, but I'll admit I have 
