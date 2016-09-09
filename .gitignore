@@ -4,3 +4,5 @@
 Data/_naive_guesses.txt
 
 Data/_rules.txt
+
+*.xcuserstate
