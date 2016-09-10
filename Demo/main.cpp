@@ -262,6 +262,10 @@ int main(int argc, const char * argv[]) {
 
         // Load and preprocess the training document
         cout << "- Loading training data\n";
+
+        // Training and test data came from here:
+        // http://www.cnts.ua.ac.be/conll2000/chunking/
+
         load_training_document(cls, data_path + "pos_train.txt");
         cout << "- Discover naive guesses\n";
         cls.discover_naive_guesses();
@@ -333,7 +337,7 @@ int main(int argc, const char * argv[]) {
                 jctbl::rule* r = *it;
 
                 string line = r->to_string(cls);
-                while (line.size() < 60) line += ' ';
+                while (line.size() < 70) line += ' ';
 
                 out << line
                     << "  # From template " << r->from_template->index + 1
