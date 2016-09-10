@@ -135,6 +135,25 @@ namespace jctbl {
         /// training speed is welcome.
         int use_best_rules = 1;
 
+        /// If true, during training, merge related rules
+        ///
+        /// There are two cases where two proposed rules can be merged together.
+        /// If one rule is a subset of another -- if the subset one is the same
+        /// as the superset except that it has one extra predicate atom -- then
+        /// there's no reason for the subset rule. The other case is when two
+        /// rules are essentially the same, but for one atom. In that case, we
+        /// can merge the two into one rule by adding the values for that one
+        /// differing atom together. In this case, we also add together their
+        /// good-change and bad-change stats, which may make a merged rule score
+        /// more highly (or lowly) than either would separately.
+        ///
+        /// This feature may marginally improve the quality of matching, but it
+        /// does add training time, so that's a cost. The major benefit is that
+        /// it generally reduces the number of rules generated. In my tests, I
+        /// found it could more than half the rule count. This reduction can
+        /// significantly improve the classification process in production.
+        bool use_merging = true;
+
         /// If true, the .train() method is still executing
         ///
         /// This is especially handy if you use the .train_async() method to

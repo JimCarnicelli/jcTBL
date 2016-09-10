@@ -242,6 +242,7 @@ int main(int argc, const char * argv[]) {
         cls.min_corrections_required = 3;
         cls.training_threads = 4;
         cls.use_best_rules = 10;
+        cls.use_merging = true;
 
         // Define input and output features
         cls.add_input_feature("Token");   // Lower-case token

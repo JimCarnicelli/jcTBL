@@ -443,53 +443,57 @@ void jctbl::classifier::train() {
         //--------------------------------------------------------------------//
         // Merge similar rules
 
-        // Rules allow for multiple alternative input values, making it possible
-        // to merge two rules into one.
+        if (use_merging) {
 
-        // So long as we found one rule merge opportunity, keep looking
-        bool found_one = true;
-        while (found_one) {
-            found_one = false;
+            // Rules allow for multiple alternative input values, making it
+            // possible to merge two rules into one.
 
-            // Visit every rule R1
-            for (auto it1 = proposed_rules->begin();
-                it1 != proposed_rules->end(); it1++
-            ) {
-                // Visit every other rule R2
-                for (auto it2 = proposed_rules->begin();
-                    it2 != proposed_rules->end(); it2++
+            // So long as we found one rule merge opportunity, keep looking
+            bool found_one = true;
+            while (found_one) {
+                found_one = false;
+
+                // Visit every rule R1
+                for (auto it1 = proposed_rules->begin();
+                    it1 != proposed_rules->end(); it1++
                 ) {
-                    if (it2 == it1) continue;  // Skip past R2 = R1
+                    // Visit every other rule R2
+                    for (auto it2 = proposed_rules->begin();
+                        it2 != proposed_rules->end(); it2++
+                    ) {
+                        if (it2 == it1) continue;  // Skip past R2 = R1
 
-                    rule* r1 = it1->second;
-                    rule* r2 = it2->second;
+                        rule* r1 = it1->second;
+                        rule* r2 = it2->second;
 
-                    if (merge_rules(r1, r2)) {
-                        found_one = true;
+                        if (merge_rules(r1, r2)) {
+                            found_one = true;
 
-                        // We have to remove this entry because its signature,
-                        // which is the key, is changing
-                        proposed_rules->erase(r1->to_string(*this));
+                            // We have to remove this entry because its
+                            // signature, which is the key, is changing
+                            proposed_rules->erase(r1->to_string(*this));
 
-                        // We have to remove this entry because it is now
-                        // subsumed by R1
-                        proposed_rules->erase(r2->to_string(*this));
+                            // We have to remove this entry because it is now
+                            // subsumed by R1
+                            proposed_rules->erase(r2->to_string(*this));
 
-                        r1->clear_to_string();  // Force recomputing
-                        proposed_rules->emplace(r1->to_string(*this), r1);
+                            r1->clear_to_string();  // Force recomputing
+                            proposed_rules->emplace(r1->to_string(*this), r1);
 
-                        delete r2;  // Delete the duplicate
+                            delete r2;  // Delete the duplicate
 
-                        // Since both rule iterators are invalidated, bail
-                        break;
-                    }
+                            // Since both rule iterators are invalidated, bail
+                            break;
+                        }
 
-                }  // Every other rule R2
+                    }  // Every other rule R2
 
-                if (found_one) break;  // Start a fresh search for mergeables
-            }  // Every rule R1
+                    if (found_one) break;  // Start a fresh search for more
+                }  // Every rule R1
 
-        }  // while (found_one)
+            }  // while (found_one)
+
+        }  // if (use_merging)
 
 
         //--------------------------------------------------------------------//
@@ -497,7 +501,7 @@ void jctbl::classifier::train() {
 
         if (use_best_rules < 1) use_best_rules = 1;
 
-        found_one = false;
+        bool found_one = false;
 
         for (int times = 0; times < use_best_rules; times++) {
 
@@ -955,6 +959,7 @@ bool jctbl::classifier::merge_rules(rule* r1, rule* r2) {
     for (auto v_it = r2_atom->values.begin(); v_it != r2_atom->values.end();
         v_it++
     ) {
+        // To do: Confirm that the value isn't already in the set
         r1_atom->add_value(*v_it);
     }
 
