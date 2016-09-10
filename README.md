@@ -23,7 +23,10 @@ The library code can be found in the /jcTBL subdirectory in /include and
 /source. You'll want to include the libjcTBL.a static library and include 
 /jcTBL/include/jctbl.hpp, which brings in all the other include files.
 
-The jctbl.hpp include file's header is loaded with background and advice.
+The 
+[jctbl.hpp](https://github.com/JimCarnicelli/jcTBL/blob/master/jcTBL/include/jctbl.hpp) 
+include file's header is loaded with background and advice on how to 
+create and tune your own application.
 
 
 ## About this project
