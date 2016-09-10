@@ -11,6 +11,15 @@ with improvements
 This C++ code is intended to be used as a static library. The demo program is 
 largely my own hacking to test out what I've built.
 
+The library code can be found in the /jcTBL subdirectory in /include and 
+/source. You'll want to include the libjcTBL.a static library and include 
+/jcTBL/include/jctbl.hpp, which brings in all the other include files.
+
+The 
+[jctbl.hpp](https://github.com/JimCarnicelli/jcTBL/blob/master/jcTBL/include/jctbl.hpp) 
+include file's header is loaded with background and advice on how to 
+create and tune your own application.
+
 I built this using Xcode 7.3.1 on a late 2013 iMac running 
 [OS X El Capitain](https://en.wikipedia.org/wiki/OS_X_El_Capitan). 
 I'm using the  GNU++11 [-std=gnu++11] language dialect and the libc++
@@ -24,15 +33,6 @@ makefile.
 To run the demo program on a similar OS X system to mine, open jcTBL.xcodeproj 
 in [Xcode](https://en.wikipedia.org/wiki/Xcode). From the Product menu, 
 expand Scheme and choose "jcTLB_Demo". Click the Run button on the toolbar.
-
-The library code can be found in the /jcTBL subdirectory in /include and 
-/source. You'll want to include the libjcTBL.a static library and include 
-/jcTBL/include/jctbl.hpp, which brings in all the other include files.
-
-The 
-[jctbl.hpp](https://github.com/JimCarnicelli/jcTBL/blob/master/jcTBL/include/jctbl.hpp) 
-include file's header is loaded with background and advice on how to 
-create and tune your own application.
 
 
 ## About this project
