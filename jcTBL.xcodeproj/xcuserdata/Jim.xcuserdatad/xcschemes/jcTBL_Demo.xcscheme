@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "38D97E8C1D7F134500324A9F"
+               BlueprintIdentifier = "384B86251D83752E009774F4"
                BuildableName = "jcTBL_Demo"
                BlueprintName = "jcTBL_Demo"
-               ReferencedContainer = "container:jcTBL_Demo.xcodeproj">
+               ReferencedContainer = "container:jcTBL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38D97E8C1D7F134500324A9F"
+            BlueprintIdentifier = "384B86251D83752E009774F4"
             BuildableName = "jcTBL_Demo"
             BlueprintName = "jcTBL_Demo"
-            ReferencedContainer = "container:jcTBL_Demo.xcodeproj">
+            ReferencedContainer = "container:jcTBL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38D97E8C1D7F134500324A9F"
+            BlueprintIdentifier = "384B86251D83752E009774F4"
             BuildableName = "jcTBL_Demo"
             BlueprintName = "jcTBL_Demo"
-            ReferencedContainer = "container:jcTBL_Demo.xcodeproj">
+            ReferencedContainer = "container:jcTBL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "38D97E8C1D7F134500324A9F"
+            BlueprintIdentifier = "384B86251D83752E009774F4"
             BuildableName = "jcTBL_Demo"
             BlueprintName = "jcTBL_Demo"
-            ReferencedContainer = "container:jcTBL_Demo.xcodeproj">
+            ReferencedContainer = "container:jcTBL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

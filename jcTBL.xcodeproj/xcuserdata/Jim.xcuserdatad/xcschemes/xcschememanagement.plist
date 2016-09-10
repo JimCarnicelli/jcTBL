@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>jcTBL_Demo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>384B86251D83752E009774F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>38D97EF01D830C2500324A9F</key>
 		<dict>
 			<key>primary</key>

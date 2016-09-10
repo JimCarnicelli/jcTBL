@@ -57,6 +57,12 @@ namespace jctbl {
         /// predicted output class.
         std::vector<std::string> values;
 
+        /// ?
+        std::string comparison_string;
+
+        /// ?
+        void add_value(const std::string& value);
+
     };
 
 

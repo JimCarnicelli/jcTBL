@@ -239,7 +239,7 @@ int main(int argc, const char * argv[]) {
     if (true) {
 
         jctbl::classifier cls;
-        cls.min_corrections_required = 10;
+        cls.min_corrections_required = 3;
         cls.training_threads = 4;
         cls.use_best_rules = 10;
 
@@ -324,7 +324,11 @@ int main(int argc, const char * argv[]) {
                 ofstream out(data_path + "_rules.txt");
                 for (auto it = cls.rules.begin(); it != cls.rules.end(); it++) {
                     jctbl::rule* r = *it;
-                    out << r->to_string(cls)
+
+                    string line = r->to_string(cls);
+                    while (line.size() < 60) line += ' ';
+
+                    out << line
                         << "    # From training line " << r->first_seen_at + 1
                         << ", From template " << r->from_template->index + 1
                         << ", Score: +" << r->good_changes

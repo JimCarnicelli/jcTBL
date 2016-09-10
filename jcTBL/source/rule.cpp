@@ -37,14 +37,11 @@ jctbl::rule::~rule() {
     for (auto it = predicate.begin(); it != predicate.end(); it++) {
         delete *it;
     }
-    if (output != nullptr) delete output;
 }
 
 
 /******************************************************************************/
 bool jctbl::rule::from_string(classifier& cls, const string& text) {
-
-    output = new rule_atom;
 
     string text2 = text;
     string token;
@@ -93,14 +90,14 @@ bool jctbl::rule::from_string(classifier& cls, const string& text) {
 
                 token = parse_next(text2, "T");  // Value text
                 if (token[0] == '\'') token.erase(0, 1);
-                atom->values.push_back(token);
+                atom->add_value(token);
 
                 token = parse_next(text2, ",]");  // ',' or ']'
                 while (token == ",") {
 
                     token = parse_next(text2, "T");  // Value text
                     if (token[0] == '\'') token.erase(0, 1);
-                    atom->values.push_back(token);
+                    atom->add_value(token);
 
                     token = parse_next(text2, ",]");  // ',' or ']'
                 }
@@ -108,7 +105,7 @@ bool jctbl::rule::from_string(classifier& cls, const string& text) {
             } else {  // token != '['
 
                 if (token[0] == '\'') token.erase(0, 1);
-                atom->values.push_back(token);
+                atom->add_value(token);
 
             }
 
@@ -144,7 +141,7 @@ bool jctbl::rule::from_string(classifier& cls, const string& text) {
 
     // The last token will contain a literal value
     if (token[0] == '\'') token.erase(0, 1);
-    output->values.push_back(token);
+    output = token;
 
     // Should be nothing more
     token = parse_next(text2, "?");
@@ -160,48 +157,57 @@ bool jctbl::rule::from_string(classifier& cls, const string& text) {
 string jctbl::rule::to_string(classifier& cls) {
     if (to_string_ != "") return to_string_;  // Cached from last call
 
+    string text = "";
+
     // Loop through all the atoms in the predicate
     for (auto a_it = predicate.begin(); a_it != predicate.end(); a_it++) {
         rule_atom* atom = *a_it;
 
-        if (to_string_ != "") to_string_ += " & ";
+        if (text != "") text += " & ";
 
         if (atom->feat == cls.output_feature) {
-            to_string_ += cls.output_feature->name;
+            text += cls.output_feature->name;
         } else {
-            to_string_ += atom->feat->name;
+            text += atom->feat->name;
         }
-        if (atom->offset >= 0) to_string_ += "+";
-        to_string_ += std::to_string(atom->offset);
+        if (atom->offset >= 0) text += "+";
+        text += std::to_string(atom->offset);
 
         if (!atom->values.empty()) {
-            to_string_ += ":";
+            text += ":";
 
-            if (atom->values.size() > 1) to_string_ += "[";
+            if (atom->values.size() > 1) text += "[";
 
             int count = 0;
             for (auto v_it = atom->values.begin(); v_it != atom->values.end();
                  v_it++
             ) {
-                if (count > 0) to_string_ += ", ";
+                if (count > 0) text += ", ";
 
                 string token = *v_it;
-                to_string_ += to_literal(token);
+                text += to_literal(token);
 
                 count++;
             }
 
-            if (atom->values.size() > 1) to_string_ += "]";
+            if (atom->values.size() > 1) text += "]";
         }
     }
 
     // Consider the output atom
-    if (!output->values.empty()) {
-        to_string_ += " => ";
-        to_string_ += to_literal(output->values.at(0));
+    if (output != "") {
+        text += " => ";
+        text += to_literal(output);
     }
 
+    to_string_ = text;
     return to_string_;
+}
+
+
+/******************************************************************************/
+void jctbl::rule::clear_to_string() {
+    to_string_ = "";
 }
 
 

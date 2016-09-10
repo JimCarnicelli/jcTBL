@@ -55,13 +55,13 @@ namespace jctbl {
         std::vector<rule_atom*> predicate;
 
         /// The characteristics of the output class to predict
-        rule_atom* output = nullptr;
+        std::string output = "";
 
         /// Everything found after '#' while parsing via .from_string()
         ///
         /// If you want comments found while loading your rule set to be output
         /// again, try something like rule->to_string() + " # " + rule->comment.
-        std::string comment;
+        std::string comment = "";
 
         /// During training, we keep track of how many changes this rule would
         /// match that would result in corrections, when compared to those
@@ -74,10 +74,10 @@ namespace jctbl {
         int bad_changes = 0;
 
         /// Tracks which element (index) this rule was first proposed for
-        int first_seen_at;
+        int first_seen_at = -1;
 
         /// If this is a rule, what template was used to create it?
-        rule* from_template;
+        rule* from_template = nullptr;
 
         /// Destructor
         ~rule();
@@ -87,6 +87,9 @@ namespace jctbl {
 
         /// Output a plain-text representation that .from_string() can use
         std::string to_string(classifier& cls);
+
+        /// Clears the cached version of .to_string(), refreshing its output
+        void clear_to_string();
 
     private:
 

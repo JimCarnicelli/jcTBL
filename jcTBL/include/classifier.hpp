@@ -212,6 +212,13 @@ namespace jctbl {
         /// be identical. A good habit to avoid accidentally doing this is to
         /// always define your same-feature predicate atoms in groups and in
         /// offset order (e.g., "PoS-1 & PoS+0 & PoS+1 & Token-1 & Token+0").
+        ///
+        /// This ordering of atoms is also important for the merging process
+        /// that, during training, combines related rules. If you don't order
+        /// your features (primary sort) and offsets (secondary sort) in order,
+        /// the merging won't work right and the resulting rules will be more
+        /// verbose by having redundancies and thus take longer to process at
+        /// classification time.
         rule* add_rule_template(std::string rule_text);
 
         /// Add the given rule to my list
@@ -294,6 +301,9 @@ namespace jctbl {
         void evaluate_rules(std::mutex* mutex, int* threads_active,
             std::vector<rule*>* candidate_rules,
             std::map<std::string, rule*>* proposed_rules);
+
+        /// ?
+        bool merge_rules(rule* r1, rule* r2);
 
         /// Apply the single rule to the entire document
         void apply_rule(rule* r);

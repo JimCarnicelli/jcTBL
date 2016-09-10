@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		384B862D1D837540009774F4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 384B861F1D8374CA009774F4 /* main.cpp */; };
+		384B862E1D83766D009774F4 /* jcTBL_Demo in Sources */ = {isa = PBXBuildFile; fileRef = 384B86261D83752E009774F4 /* jcTBL_Demo */; };
+		384B86311D8376C6009774F4 /* libjcTBL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38D97EF11D830C2500324A9F /* libjcTBL.a */; };
 		38D97F061D830CA500324A9F /* classifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38D97F011D830CA500324A9F /* classifier.cpp */; };
 		38D97F071D830CA500324A9F /* element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38D97F021D830CA500324A9F /* element.cpp */; };
 		38D97F081D830CA500324A9F /* feature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38D97F031D830CA500324A9F /* feature.cpp */; };
@@ -18,9 +21,24 @@
 		38D97F141D830CAE00324A9F /* jctbl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 38D97F0E1D830CAE00324A9F /* jctbl.hpp */; };
 		38D97F151D830CAE00324A9F /* rule_atom.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 38D97F0F1D830CAE00324A9F /* rule_atom.hpp */; };
 		38D97F161D830CAE00324A9F /* rule.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 38D97F101D830CAE00324A9F /* rule.hpp */; };
+		38D97F1A1D834CD900324A9F /* rule_atom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38D97F191D834CD900324A9F /* rule_atom.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		384B86241D83752E009774F4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		384B861F1D8374CA009774F4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Demo/main.cpp; sourceTree = "<group>"; };
+		384B86261D83752E009774F4 /* jcTBL_Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jcTBL_Demo; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D97EF11D830C2500324A9F /* libjcTBL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libjcTBL.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38D97F011D830CA500324A9F /* classifier.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = classifier.cpp; path = source/classifier.cpp; sourceTree = "<group>"; };
 		38D97F021D830CA500324A9F /* element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = element.cpp; path = source/element.cpp; sourceTree = "<group>"; };
@@ -33,9 +51,18 @@
 		38D97F0E1D830CAE00324A9F /* jctbl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = jctbl.hpp; path = include/jctbl.hpp; sourceTree = "<group>"; };
 		38D97F0F1D830CAE00324A9F /* rule_atom.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = rule_atom.hpp; path = include/rule_atom.hpp; sourceTree = "<group>"; };
 		38D97F101D830CAE00324A9F /* rule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = rule.hpp; path = include/rule.hpp; sourceTree = "<group>"; };
+		38D97F191D834CD900324A9F /* rule_atom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rule_atom.cpp; path = source/rule_atom.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		384B86231D83752E009774F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384B86311D8376C6009774F4 /* libjcTBL.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38D97EEE1D830C2500324A9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,10 +73,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		384B861E1D8374A8009774F4 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				384B861F1D8374CA009774F4 /* main.cpp */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		38D97EE81D830C2500324A9F = {
 			isa = PBXGroup;
 			children = (
 				38D97EF31D830C2500324A9F /* jcTBL */,
+				384B861E1D8374A8009774F4 /* Demo */,
 				38D97EF21D830C2500324A9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				38D97EF11D830C2500324A9F /* libjcTBL.a */,
+				384B86261D83752E009774F4 /* jcTBL_Demo */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +128,7 @@
 				38D97F021D830CA500324A9F /* element.cpp */,
 				38D97F031D830CA500324A9F /* feature.cpp */,
 				38D97F041D830CA500324A9F /* jctbl_for_source.hpp */,
+				38D97F191D834CD900324A9F /* rule_atom.cpp */,
 				38D97F051D830CA500324A9F /* rule.cpp */,
 			);
 			name = source;
@@ -116,6 +154,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		384B86251D83752E009774F4 /* jcTBL_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 384B862C1D83752E009774F4 /* Build configuration list for PBXNativeTarget "jcTBL_Demo" */;
+			buildPhases = (
+				384B86221D83752E009774F4 /* Sources */,
+				384B86231D83752E009774F4 /* Frameworks */,
+				384B86241D83752E009774F4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = jcTBL_Demo;
+			productName = jcTBL_Demo;
+			productReference = 384B86261D83752E009774F4 /* jcTBL_Demo */;
+			productType = "com.apple.product-type.tool";
+		};
 		38D97EF01D830C2500324A9F /* jcTBL */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38D97EFC1D830C2500324A9F /* Build configuration list for PBXNativeTarget "jcTBL" */;
@@ -142,6 +197,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "James Carnicelli";
 				TargetAttributes = {
+					384B86251D83752E009774F4 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					38D97EF01D830C2500324A9F = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -160,11 +218,21 @@
 			projectRoot = "";
 			targets = (
 				38D97EF01D830C2500324A9F /* jcTBL */,
+				384B86251D83752E009774F4 /* jcTBL_Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		384B86221D83752E009774F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				384B862D1D837540009774F4 /* main.cpp in Sources */,
+				384B862E1D83766D009774F4 /* jcTBL_Demo in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38D97EED1D830C2500324A9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,12 +241,27 @@
 				38D97F0A1D830CA500324A9F /* rule.cpp in Sources */,
 				38D97F061D830CA500324A9F /* classifier.cpp in Sources */,
 				38D97F081D830CA500324A9F /* feature.cpp in Sources */,
+				38D97F1A1D834CD900324A9F /* rule_atom.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		384B862A1D83752E009774F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		384B862B1D83752E009774F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		38D97EFA1D830C2500324A9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -283,6 +366,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		384B862C1D83752E009774F4 /* Build configuration list for PBXNativeTarget "jcTBL_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				384B862A1D83752E009774F4 /* Debug */,
+				384B862B1D83752E009774F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		38D97EEC1D830C2500324A9F /* Build configuration list for PBXProject "jcTBL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

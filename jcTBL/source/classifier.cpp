@@ -217,7 +217,7 @@ jctbl::rule* jctbl::classifier::add_rule_template(rule* r) {
     // Validate
     if (r->predicate.empty()) throw runtime_error("At least one predicate "
         "atom (e.g., 'PoS+1') is required for a rule template");
-    if (!r->output->values.empty()) throw runtime_error(
+    if (r->output != "") throw runtime_error(
         "No output value may be specified for a rule template");
 
     r->index = (int) rule_templates.size();
@@ -252,8 +252,8 @@ jctbl::rule* jctbl::classifier::add_rule(rule* r) {
     // Validate
     if (r->predicate.empty()) throw runtime_error("At least one predicate "
         "atom (e.g., 'PoS-1:NN') is required for a rule");
-    if (r->output->values.size() != 1) throw runtime_error(
-        "A single output value is required for a rule");
+    if (r->output == "") throw runtime_error(
+        "An output value is required for a rule");
 
     // We don't guarantee uniqueness in this case because it may be appopriate
     // for the same rule to appear later by another rule that messes up some
@@ -441,11 +441,63 @@ void jctbl::classifier::train() {
 
 
         //--------------------------------------------------------------------//
+        // Merge similar rules
+
+        // Rules allow for multiple alternative input values, making it possible
+        // to merge two rules into one.
+
+        // So long as we found one rule merge opportunity, keep looking
+        bool found_one = true;
+        while (found_one) {
+            found_one = false;
+
+            // Visit every rule R1
+            for (auto it1 = proposed_rules->begin();
+                it1 != proposed_rules->end(); it1++
+            ) {
+                // Visit every other rule R2
+                for (auto it2 = proposed_rules->begin();
+                    it2 != proposed_rules->end(); it2++
+                ) {
+                    if (it2 == it1) continue;  // Skip past R2 = R1
+
+                    rule* r1 = it1->second;
+                    rule* r2 = it2->second;
+
+                    if (merge_rules(r1, r2)) {
+                        found_one = true;
+
+                        // We have to remove this entry because its signature,
+                        // which is the key, is changing
+                        proposed_rules->erase(r1->to_string(*this));
+
+                        // We have to remove this entry because it is now
+                        // subsumed by R1
+                        proposed_rules->erase(r2->to_string(*this));
+
+                        r1->clear_to_string();  // Force recomputing
+                        proposed_rules->emplace(r1->to_string(*this), r1);
+
+                        delete r2;  // Delete the duplicate
+
+                        // Since both rule iterators are invalidated, bail
+                        break;
+                    }
+
+                }  // Every other rule R2
+
+                if (found_one) break;  // Start a fresh search for mergeables
+            }  // Every rule R1
+
+        }  // while (found_one)
+
+
+        //--------------------------------------------------------------------//
         // From the rules we've considered so far, find the N best
 
         if (use_best_rules < 1) use_best_rules = 1;
 
-        bool found_one = false;
+        found_one = false;
 
         for (int times = 0; times < use_best_rules; times++) {
 
@@ -648,8 +700,8 @@ void jctbl::classifier::propose_rules(mutex* mutex,
                 // There's no need to propose a change rule if the rule
                 // would not cause any actual change
                 if (
-                    rule_template->output->values.empty() ||
-                    el->output_value != rule_template->output->values.at(0)
+                    rule_template->output == "" ||
+                    el->output_value != rule_template->output
                 ) {
                     propose_rule(el, rule_template, proposed_rules);
                 }
@@ -703,7 +755,7 @@ void jctbl::classifier::propose_rule(element* el, rule* rule_template,
         } else {
             current_value = el2->input_values.at(atom->feat->index);
         }
-        new_atom->values.push_back(current_value);
+        new_atom->add_value(current_value);
 
         if (new_atom->values.size() == atom->values.size()) {
             if (current_value != atom->values.at(0)) {
@@ -714,10 +766,9 @@ void jctbl::classifier::propose_rule(element* el, rule* rule_template,
     }  // Each predicate atom
 
     // Copy the training value to the output class label
-    r->output = new rule_atom;
-    if (rule_template->output->values.empty()) {
+    if (rule_template->output == "") {
 
-        r->output->values.push_back(el->training_value);
+        r->output = el->training_value;
         something_changed = true;
 
     } else {
@@ -781,7 +832,7 @@ void jctbl::classifier::evaluate_rules(mutex* mutex, int* threads_active,
             if (fit_rule(el, r)) {
 
                 // Does this rule have an incorrect result?
-                if (r->output->values.at(0) != el->training_value) {
+                if (r->output != el->training_value) {
                     r->bad_changes++;
 
                     // If the bad outweighs the good, let's move on
@@ -815,11 +866,112 @@ void jctbl::classifier::evaluate_rules(mutex* mutex, int* threads_active,
 
 
 /******************************************************************************/
+bool jctbl::classifier::merge_rules(rule* r1, rule* r2) {
+
+    // This algorithm is based on an assumption that the rule templates
+    // predicate atoms are all defined in the same order as each other. That
+    // includes the feature names (primary sort order) and offsets (secondary
+    // sort order).
+    //
+    // This algorithm also only deals with the case where we might merge R2 into
+    // R1. The mirror image, where we merge R1 into R2, will be considered at
+    // another point in the comparison process.
+
+
+    //------------------------------------------------------------------------//
+    // Superficial considerations
+
+    // If the output is different, these rules are clearly not mergeable
+    if (r1->output != r2->output) return false;
+
+    // If r1 has more predicate atoms, there's no point in comparing
+    if (r2->predicate.size() < r1->predicate.size()) return false;
+
+
+    //------------------------------------------------------------------------//
+    // It's possible R2 is a subset of the other by virtue of having one
+    // extra qualifier that is thus redundant
+
+    if (r2->predicate.size() > r1->predicate.size()) {
+
+        // Figure out which atom is extra
+        for (auto it_1 = r1->predicate.begin(); it_1 != r1->predicate.end();
+            it_1++
+        ) {
+            rule_atom* atom1 = *it_1;
+
+            // Look for this rule atom in the other rule
+            bool found = false;
+            for (auto it_2 = r2->predicate.begin(); it_2 != r2->predicate.end();
+                it_2++
+            ) {
+                rule_atom* atom2 = *it_2;
+                if (atom2->comparison_string == atom1->comparison_string) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) return false;
+        }
+
+        // If we got this far, then R2 is a subset of R1. A subset rule will
+        // do the same thing as its superset, so we don't bother adding its
+        // good-changes to the superset's good-changes. It may do more bad
+        // changes than the superset, but we're getting rid of it, so that's
+        // irrelevant.
+
+        return true;
+
+    }
+
+
+    //------------------------------------------------------------------------//
+    // It could be that we have two rules that only have one atom's difference,
+    // in which case we can combine them into one. We only got here because R1
+    // and R2 have the same number of predicates.
+
+    rule_atom* r1_atom = nullptr;
+    rule_atom* r2_atom = nullptr;
+
+    // Count how many atoms are different
+    int differences = 0;
+    auto it_2 = r2->predicate.begin();
+    for (auto it_1 = r1->predicate.begin(); it_1 != r1->predicate.end(); it_1++
+    ) {
+        if ((*it_2)->comparison_string != (*it_1)->comparison_string) {
+            r1_atom = *it_1;
+            r2_atom = *it_2;
+            differences++;
+        }
+        it_2++;
+    }
+
+    // Differences should never be 0, since we already weeded out duplicates
+    // during the proposal phase. So if the number of atom value differences is
+    // two or more, then we can't be sure these rules can be merged.
+    if (differences != 1) return false;
+
+    // Copy R2's different-atom values into R1's
+    for (auto v_it = r2_atom->values.begin(); v_it != r2_atom->values.end();
+        v_it++
+    ) {
+        r1_atom->add_value(*v_it);
+    }
+
+    // Combine the good and bad each rule does
+    r1->good_changes += r2->good_changes;
+    r1->bad_changes += r2->bad_changes;
+
+    return true;
+}
+
+
+/******************************************************************************/
 void jctbl::classifier::apply_rule(rule* r) {
     for (auto it = elements.begin(); it != elements.end(); it++) {
         element* el = *it;
         if (fit_rule(el, r)) {
-            string new_value = r->output->values.at(0);
+            string new_value = r->output;
             if (el->output_value != new_value) {
                 el->output_value = new_value;
             }

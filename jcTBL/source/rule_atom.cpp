@@ -27,22 +27,25 @@
     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
     IN THE SOFTWARE.
 
-    ----------------------------------------------------------------------------
-
-    This expands on the all.hpp include by including resources required only 
-    for library compilation but which would simply slow down user-code 
-    compilation.
-
 */
 
-#ifndef jctbl_jctbl_for_source_hpp
-#define jctbl_jctbl_for_source_hpp
+#include "jctbl_for_source.hpp"
 
-#include "jctbl.hpp"
-// #include <iostream>  // Only needed for cout during debugging
-#include <fstream>
 
-// Only let this global namespace spill over in this library, not your app code
-using namespace std;
+/******************************************************************************/
+void jctbl::rule_atom::add_value(const string& value) {
+    values.push_back(value);
 
-#endif /* jctbl_jctbl_for_source_hpp */
+    // Sorting the values helps make rules comparable (and versionable)
+    std::sort(values.begin(), values.end());
+
+    // String version of list for use in merging rules during training
+    comparison_string = to_string(feat->index);
+    comparison_string += "|";
+    comparison_string += to_string(this->offset);
+    for (auto it = values.begin(); it != values.end(); it++) {
+        comparison_string += "|";
+        comparison_string += *it;
+    }
+
+}
