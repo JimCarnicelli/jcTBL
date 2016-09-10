@@ -237,7 +237,7 @@ int main(int argc, const char * argv[]) {
     string data_path = "/Users/Jim/Google Drive/Experiments/jcTBL/Data/";
 
     jctbl::classifier cls;
-    cls.min_corrections_required = 10;
+    cls.min_corrections_required = 20;
     cls.training_threads = 4;
     cls.use_best_rules = 10;
     cls.use_merging = true;
@@ -328,14 +328,24 @@ int main(int argc, const char * argv[]) {
                 while (line.size() < 60) line += ' ';
 
                 out << line
-                    << "    # From training line " << r->first_seen_at + 1
-                    << ", From template " << r->from_template->index + 1
+                    << "  # From template " << r->from_template->index + 1
+                    << ", From training line " << r->first_seen_at + 1
                     << ", Score: +" << r->good_changes
                     << " -" << r->bad_changes
                     << " = " << r->good_changes - r->bad_changes
                     << "\n";
             }
             out.close();
+        }
+
+        cout << "------------------------\n";
+
+        for (auto it = cls.rule_templates.begin();
+            it != cls.rule_templates.end(); it++) {
+            jctbl::rule* rt = *it;
+            cout << rt->rules_created_from_me
+                << " rules created from template:  "
+                << rt->to_string(cls) << "\n";
         }
 
         cout << "------------------------\n";

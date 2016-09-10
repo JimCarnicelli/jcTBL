@@ -1,38 +1,30 @@
 # Part of speech rules
 # Generated 9/8/2016 by Jim Carnicelli
 # - Baseline: 94.6937% success rate
-# - After training: 97.232%
-# - Improvement: 2.68049%
+# - After training: 97.2501%
+# - Improvement: 2.69964%
 
 PoS-1:MD & PoS+0:[JJ, NN, NNP, VBN, VBP] => VB                  # From training line 428, From template 3, Score: +461 -9 = 452
-PoS+0:[JJ, NN, NNS] & PoS+1:NNP => NNP                          # From training line 1260, From template 8, Score: +1336 -938 = 398
-PoS-1:TO & PoS+0:[NN, VBN] => VB                                # From training line 108, From template 3, Score: +506 -120 = 386
-PoS-1:[CC, IN, NN, NNP, SEP, VBD] & PoS+0:NN & PoS+1:NNP => NNP    # From training line 6310, From template 6, Score: +483 -174 = 309
-PoS+0:NN & PoS+1:NNP & PoS+2:['(', ',', '.', ':', CC, DT, IN, JJ, MD, NN, NNS, POS, VBD, VBN, VBP, VBZ] => NNP    # From training line 136918, From template 9, Score: +522 -224 = 298
-PoS-2:[',', CC, CD, IN, JJ, NN, NNP, NNS, RB, SEP, VBG, VBN] & PoS-1:TO & PoS+0:NN => VB    # From training line 51710, From template 2, Score: +374 -96 = 278
+PoS+0:[JJ, NN, NNS] & PoS+1:NNP => NNP                          # From training line 1260, From template 8, Score: +1336 -932 = 404
+PoS-1:TO & PoS+0:[NN, VBN] => VB                                # From training line 108, From template 3, Score: +489 -113 = 376
 PoS-1:[NNPS, NNS, WDT, WP] & PoS+0:VB => VBP                    # From training line 18137, From template 3, Score: +272 -13 = 259
 PoS+0:IN & PoS+1:[MD, VBD, VBP, VBZ] => WDT                     # From training line 2867, From template 8, Score: +396 -141 = 255
 PoS-1:[NNP, PRP, WDT, WP] & PoS+0:VBN => VBD                    # From training line 2423, From template 3, Score: +270 -19 = 251
-PoS-1:[VB, VBD, VBG, VBN] & PoS+0:VBD => VBN                    # From training line 1674, From template 3, Score: +260 -46 = 214
+PoS-1:[VB, VBD, VBG, VBN] & PoS+0:VBD => VBN                    # From training line 1674, From template 3, Score: +271 -47 = 224
 PoS-1:[PRP, WP] & PoS+0:[NNS, POS] => VBZ                       # From training line 2067, From template 3, Score: +224 -14 = 210
-PoS-1:[VBP, VBZ] & PoS+0:[VB, VBD] => VBN                       # From training line 37463, From template 3, Score: +242 -52 = 190
+PoS-1:[VBP, VBZ] & PoS+0:[VB, VBD] => VBN                       # From training line 37463, From template 3, Score: +244 -58 = 186
 PoS-1:[RB, TO] & PoS+0:VBP => VB                                # From training line 533, From template 3, Score: +268 -111 = 157
-PoS-1:PRP & PoS+0:POS & PoS+1:[DT, IN, JJ, JJR, NN, RB, VBD, VBG, VBN] => VBZ    # From training line 18010, From template 6, Score: +142 -1 = 141
-PoS+0:POS & PoS+1:[DT, IN, JJR, RB, WP, WRB] => VBZ             # From training line 1394, From template 8, Score: +164 -26 = 138
 PoS-1:PRP & PoS+0:[NN, VB] => VBP                               # From training line 17374, From template 3, Score: +171 -34 = 137
-PoS+0:JJR & PoS+1:[JJ, RB, VBN] => RBR                          # From training line 7883, From template 8, Score: +155 -23 = 132
-PoS-2:[',', RB, SEP, VB, VBD, VBP, VBZ, '``'] & PoS-1:PRP & PoS+0:POS => VBZ    # From training line 19298, From template 2, Score: +113 -0 = 113
-PoS-2:[IN, JJ, NN, NNS, PRP, RB, VBD, VBG, VBN, VBP, VBZ, WP] & PoS-1:TO & PoS+0:VBP => VB    # From training line 77091, From template 2, Score: +107 -0 = 107
-PoS-2:[RB, VBD, VBP, VBZ] & PoS-1:RB & PoS+0:VBP => VB          # From training line 34393, From template 2, Score: +105 -1 = 104
 PoS-2:[',', NNS, PRP] & PoS-1:RB & PoS+0:VB => VBP              # From training line 10338, From template 2, Score: +140 -7 = 133
+PoS+0:JJR & PoS+1:[JJ, RB, VBN] => RBR                          # From training line 7883, From template 8, Score: +155 -23 = 132
+PoS-1:[EX, IN] & PoS+0:POS => VBZ                               # From training line 1830, From template 3, Score: +103 -0 = 103
 PoS-1:NN & PoS+0:VBN & PoS+1:[DT, JJ, NN, NNS, PRP, 'PRP$'] => VBD    # From training line 43652, From template 6, Score: +103 -6 = 97
 PoS-1:DT & PoS+0:[VB, VBP] => NN                                # From training line 917, From template 3, Score: +119 -34 = 85
+PoS-1:[',', IN, NN, NNP, NNS, POS, SEP] & PoS+0:NN & PoS+1:NNP => NNP    # From training line 72407, From template 6, Score: +114 -35 = 79
 PoS+0:[EX, IN] & PoS+1:'.' & PoS+2:SEP => RB                    # From training line 58118, From template 9, Score: +86 -10 = 76
-PoS-1:[IN, JJ, NN, POS] & PoS+0:VB => NN                        # From training line 3211, From template 3, Score: +162 -92 = 70
-PoS-2:NNS & PoS-1:RB & PoS+0:VB & PoS+1:[',', DT, JJ, NN, NNS, RB, TO, VBG, VBN] => VBP    # From training line 18750, From template 4, Score: +65 -0 = 65
+PoS-1:[IN, JJ, NN, POS] & PoS+0:VB => NN                        # From training line 3211, From template 3, Score: +162 -93 = 69
 PoS-2:[DT, VBD, VBP, VBZ] & PoS-1:RB & PoS+0:VBD => VBN         # From training line 221, From template 2, Score: +63 -1 = 62
 PoS-1:NNS & PoS+0:VBN & PoS+1:[DT, JJ, NN, NNP, NNS, 'PRP$'] => VBD    # From training line 15976, From template 6, Score: +60 -2 = 58
-PoS-2:[IN, VB] & PoS-1:[DT, 'PRP$'] & PoS+0:VB => NN            # From training line 4109, From template 2, Score: +62 -5 = 57
 PoS-2:[NN, NNP, PRP] & PoS-1:RB & PoS+0:VBN => VBD              # From training line 9227, From template 2, Score: +51 -0 = 51
 PoS-1:DT & PoS+0:JJ & PoS+1:['.', IN, MD, POS] => NN            # From training line 11982, From template 6, Score: +83 -35 = 48
 PoS-2:[',', ':', SEP] & PoS-1:NNP & PoS+0:NN => NNP             # From training line 3220, From template 2, Score: +89 -41 = 48
@@ -40,17 +32,13 @@ PoS-1:[IN, RB, TO, VB, VBD] & PoS+0:IN & PoS+1:JJ & PoS+2:IN => RB    # From tra
 PoS-1:[SEP, '``'] & PoS+0:RBS => JJS                            # From training line 64339, From template 3, Score: +46 -2 = 44
 PoS+0:JJ & PoS+1:[JJR, RBR] => RB                               # From training line 6612, From template 8, Score: +47 -4 = 43
 PoS-1:[CC, SEP] & PoS+0:WDT => DT                               # From training line 31417, From template 3, Score: +56 -15 = 41
-PoS+0:IN & PoS+1:[POS, VBZ] => DT                               # From training line 8696, From template 8, Score: +51 -11 = 40
-PoS-2:'.' & PoS-1:SEP & PoS+0:RBS => JJS                        # From training line 3260, From template 2, Score: +39 -0 = 39
+PoS+0:IN & PoS+1:VBZ => DT                                      # From training line 1393, From template 8, Score: +51 -11 = 40
+PoS-1:JJ & PoS+0:[VBG, VBP] => NN                               # From training line 708, From template 3, Score: +73 -33 = 40
 PoS-1:',' & PoS+0:VBN & PoS+1:[DT, PRP, 'PRP$'] => VBD          # From training line 59819, From template 6, Score: +38 -0 = 38
 PoS-2:[MD, VBD] & PoS-1:RB & PoS+0:NN => VB                     # From training line 423, From template 2, Score: +44 -6 = 38
-PoS-1:[JJ, 'PRP$'] & PoS+0:VBG => NN                            # From training line 27861, From template 3, Score: +74 -36 = 38
-PoS-2:[',', DT, IN, JJ, TO, VBN] & PoS-1:JJ & PoS+0:VBG => NN    # From training line 3578, From template 2, Score: +42 -5 = 37
-PoS-1:JJ & PoS+0:VBG & PoS+1:[',', '.', IN, NN, NNS, TO] => NN    # From training line 75116, From template 6, Score: +55 -18 = 37
 PoS-1:JJ & PoS+0:JJ & PoS+1:['.', IN, MD] => NN                 # From training line 30551, From template 6, Score: +41 -12 = 29
-PoS-1:[DT, EX] & PoS+0:POS => VBZ                               # From training line 8697, From template 3, Score: +28 -0 = 28
-PoS-1:NNP & PoS+0:JJ & PoS+1:[',', JJ, NNP] => NNP              # From training line 33632, From template 6, Score: +47 -19 = 28
 PoS-1:DT & PoS+0:[IN, RB] & PoS+1:NN => JJ                      # From training line 37842, From template 6, Score: +33 -7 = 26
+PoS-1:NNP & PoS+0:JJ & PoS+1:[',', JJ, NNP] => NNP              # From training line 33632, From template 6, Score: +44 -18 = 26
 PoS-1:[',', NN, NNP, RB, WDT] & PoS+0:NNS & PoS+1:DT => VBZ     # From training line 59550, From template 6, Score: +41 -16 = 25
 PoS-1:[CC, IN, TO] & PoS+0:IN & PoS+1:'$' => RB                 # From training line 1631, From template 6, Score: +44 -20 = 24
 PoS-1:DT & PoS+0:VBD & PoS+1:NN => VBN                          # From training line 12524, From template 6, Score: +24 -1 = 23
@@ -60,42 +48,36 @@ PoS+0:VBD & PoS+1:NNP & PoS+2:CD => VBN                         # From training 
 PoS+0:DT & PoS+1:DT => PDT                                      # From training line 1762, From template 8, Score: +45 -26 = 19
 PoS+0:JJ & PoS+1:VBN & PoS+2:[DT, IN] => RB                     # From training line 16978, From template 9, Score: +24 -6 = 18
 PoS-1:[CC, IN] & PoS+0:VBN & PoS+1:DT => VBD                    # From training line 16244, From template 6, Score: +21 -4 = 17
-PoS-2:[CD, JJ, NN] & PoS-1:NNS & PoS+0:NNP => JJ                # From training line 104977, From template 2, Score: +23 -6 = 17
 PoS+0:RBR & PoS+1:[NN, NNS] => JJR                              # From training line 14108, From template 8, Score: +16 -0 = 16
-PoS-2:[JJ, NN] & PoS-1:NNS & PoS+0:NNP & PoS+1:NNP & PoS+2:CD => JJ    # From training line 105614, From template 5, Score: +16 -0 = 16
 PoS-1:TO & PoS+0:JJ & PoS+1:[DT, IN] => VB                      # From training line 5250, From template 6, Score: +17 -1 = 16
 PoS-1:[',', '.'] & PoS+0:POS => ''''''                          # From training line 1692, From template 3, Score: +18 -2 = 16
 PoS+0:JJ & PoS+1:[NNPS, POS] & PoS+2:NNP => NNP                 # From training line 89352, From template 9, Score: +19 -4 = 15
+PoS-1:[',', JJ, SEP, VBD] & PoS+0:JJ & PoS+1:VBD => NN          # From training line 58705, From template 6, Score: +35 -3 = 32
 PoS-1:NNP & PoS+0:JJ & PoS+1:VBD => NNP                         # From training line 886, From template 6, Score: +20 -5 = 15
-PoS+0:NNS & PoS+1:NNP => NNP                                    # From training line 57141, From template 8, Score: +17 -4 = 13
-PoS-1:[',', NNS, POS] & PoS+0:NN & PoS+1:NNP => NNP             # From training line 9944, From template 6, Score: +17 -4 = 13
 PoS-1:DT & PoS+0:NNS & PoS+1:CC & PoS+2:NNP => NNP              # From training line 1122, From template 7, Score: +15 -3 = 12
-PoS+0:JJ & PoS+1:VBD => NN                                      # From training line 8896, From template 8, Score: +63 -51 = 12
-PoS+0:POS & PoS+1:'''''' => ''''''                              # From training line 1692, From template 8, Score: +11 -0 = 11
 PoS-1:SEP & PoS+0:IN & PoS+1:NN & PoS+2:[MD, VBD] => DT         # From training line 24520, From template 7, Score: +11 -0 = 11
-PoS-2:[NNP, PRP, VB] & PoS-1:RB & PoS+0:NNS => VBZ              # From training line 46645, From template 2, Score: +14 -3 = 11
-PoS-1:NNP & PoS+0:NN & PoS+1:NN & PoS+2:[JJ, NN, VBD] => NNP    # From training line 65523, From template 7, Score: +34 -21 = 13
 PoS-1:SEP & PoS+0:JJ & PoS+1:[CC, NN] & PoS+2:NNP => NNP        # From training line 42270, From template 7, Score: +13 -2 = 11
+PoS-2:[CC, JJ, VBZ] & PoS-1:NN & PoS+0:NNP & PoS+1:NNP & PoS+2:NNP => NN    # From training line 90981, From template 5, Score: +16 -4 = 12
+PoS-2:[NNP, PRP, VB] & PoS-1:RB & PoS+0:NNS => VBZ              # From training line 46645, From template 2, Score: +14 -3 = 11
+PoS-1:'PRP$' & PoS+0:[VB, VBG] => NN                            # From training line 4109, From template 3, Score: +18 -7 = 11
 PoS-2:[JJ, NN, SEP] & PoS-1:JJ & PoS+0:NNP => NN                # From training line 58014, From template 2, Score: +18 -7 = 11
 PoS-2:IN & PoS-1:DT & PoS+0:[IN, JJ] & PoS+1:',' => NN          # From training line 29002, From template 4, Score: +20 -9 = 11
+PoS-1:DT & PoS+0:VBG & PoS+1:[',', '.', IN] => NN               # From training line 18292, From template 6, Score: +21 -6 = 15
 PoS-1:',' & PoS+0:IN & PoS+1:',' => RB                          # From training line 3657, From template 6, Score: +10 -0 = 10
-PoS-1:DT & PoS+0:[IN, VBG] & PoS+1:',' => NN                    # From training line 29002, From template 6, Score: +11 -1 = 10
 PoS-1:[CC, SEP] & PoS+0:IN & PoS+1:NN & PoS+2:VBZ => DT         # From training line 666, From template 7, Score: +12 -2 = 10
-PoS-1:DT & PoS+0:VBG & PoS+1:['.', IN] => NN                    # From training line 37665, From template 6, Score: +16 -6 = 10
-PoS-1:TO & PoS+0:NNP & PoS+1:DT => VB                           # From training line 98839, From template 6, Score: +9 -0 = 9
-PoS-1:[POS, WRB] & PoS+0:JJ & PoS+1:IN => NN                    # From training line 4097, From template 6, Score: +9 -0 = 9
+PoS-1:NNP & PoS+0:NN & PoS+1:NN & PoS+2:[JJ, NN] => NNP         # From training line 16109, From template 7, Score: +26 -16 = 10
 PoS-3:[IN, SEP] & PoS-2:NNP & PoS-1:NNP & PoS+0:NN => NNP       # From training line 16230, From template 1, Score: +45 -34 = 11
+PoS-1:NNP & PoS+0:NN & PoS+1:[CC, NNP, POS] & PoS+2:NNP => NNP    # From training line 17799, From template 7, Score: +24 -12 = 12
+PoS-1:TO & PoS+0:NNP & PoS+1:DT => VB                           # From training line 98839, From template 6, Score: +9 -0 = 9
 PoS-2:',' & PoS-1:WDT & PoS+0:NN => VBP                         # From training line 66539, From template 2, Score: +9 -0 = 9
+PoS-1:POS & PoS+0:JJ & PoS+1:[IN, VBD] => NN                    # From training line 4097, From template 6, Score: +10 -1 = 9
 PoS-1:DT & PoS+0:NNP & PoS+1:IN & PoS+2:[JJ, NNS] => NN         # From training line 10960, From template 7, Score: +15 -6 = 9
 PoS+0:IN & PoS+1:RB & PoS+2:IN => RB                            # From training line 1379, From template 9, Score: +40 -31 = 9
 PoS+0:'PRP$' & PoS+1:IN => PRP                                  # From training line 56639, From template 8, Score: +8 -0 = 8
 PoS-2:NNS & PoS-1:WP & PoS+0:NN => VBP                          # From training line 12702, From template 2, Score: +8 -0 = 8
 PoS+0:WDT & PoS+1:VBZ & PoS+2:',' => DT                         # From training line 3187, From template 9, Score: +9 -1 = 8
-PoS-2:NNP & PoS-1:NNP & PoS+0:NN & PoS+1:[POS, VBD] & PoS+2:CD => NNP    # From training line 71995, From template 5, Score: +9 -1 = 8
 PoS-1:[VB, VBG] & PoS+0:RB & PoS+1:NN => JJ                     # From training line 62265, From template 6, Score: +10 -2 = 8
 PoS-2:[',', NNP] & PoS-1:NNP & PoS+0:NNS & PoS+1:TO & PoS+2:VB => VBZ    # From training line 137242, From template 5, Score: +10 -2 = 8
-PoS-1:NNP & PoS+0:NN & PoS+1:[CC, NNP, POS] & PoS+2:NNP => NNP    # From training line 17799, From template 7, Score: +25 -13 = 12
-PoS-1:NNP & PoS+0:[NN, VBG] & PoS+1:NNP => NNP                  # From training line 85819, From template 6, Score: +13 -4 = 9
 PoS-1:NNS & PoS+0:NN & PoS+1:[CD, DT] => VBP                    # From training line 29373, From template 6, Score: +13 -5 = 8
 PoS-1:MD & PoS+0:IN & PoS+1:TO => VB                            # From training line 2566, From template 6, Score: +7 -0 = 7
 PoS-1:[NN, VB] & PoS+0:NN & PoS+1:'PRP$' => VB                  # From training line 11599, From template 6, Score: +7 -0 = 7
@@ -104,47 +86,45 @@ PoS-1:SEP & PoS+0:JJR & PoS+1:IN => RBR                         # From training 
 PoS-2:',' & PoS-1:IN & PoS+0:RB & PoS+1:'$' => IN               # From training line 20183, From template 4, Score: +8 -1 = 7
 PoS-2:SEP & PoS-1:IN & PoS+0:IN & PoS+1:NN => DT                # From training line 77489, From template 4, Score: +8 -1 = 7
 PoS-1:VBD & PoS+0:VB & PoS+1:IN => VBN                          # From training line 16931, From template 6, Score: +9 -2 = 7
-PoS+0:[JJ, VB] & PoS+1:POS => NN                                # From training line 9152, From template 8, Score: +11 -4 = 7
 PoS-1:NN & PoS+0:DT & PoS+1:VBZ => WDT                          # From training line 21535, From template 6, Score: +11 -4 = 7
+PoS-1:[VBP, VBZ] & PoS+0:NN & PoS+1:DT => VBG                   # From training line 36674, From template 6, Score: +11 -4 = 7
 PoS-1:NN & PoS+0:VBZ & PoS+1:'.' => NNS                         # From training line 8625, From template 6, Score: +16 -9 = 7
+PoS+0:NNS & PoS+1:NNP => NNP                                    # From training line 2898, From template 8, Score: +22 -15 = 7
 PoS+0:JJR & PoS+1:IN & PoS+2:VBN => RBR                         # From training line 8056, From template 9, Score: +6 -0 = 6
 PoS+0:JJS & PoS+1:VBN => RBS                                    # From training line 34904, From template 8, Score: +6 -0 = 6
 PoS-1:SEP & PoS+0:VBD & PoS+1:IN => VBN                         # From training line 97578, From template 6, Score: +6 -0 = 6
-PoS-1:[JJ, NN] & PoS+0:NNP & PoS+1:NNP & PoS+2:CD => NN         # From training line 168306, From template 7, Score: +7 -1 = 6
-PoS-2:[VBG, VBZ] & PoS-1:NN & PoS+0:NNP => NN                   # From training line 105701, From template 2, Score: +7 -1 = 6
 PoS-1:CC & PoS+0:RBR & PoS+1:JJ => JJR                          # From training line 6834, From template 6, Score: +8 -2 = 6
 PoS-1:VBD & PoS+0:JJ & PoS+1:IN & PoS+2:'$' => NN               # From training line 20044, From template 7, Score: +8 -2 = 6
 PoS-2:',' & PoS-1:CC & PoS+0:VBN => VBD                         # From training line 39215, From template 2, Score: +8 -2 = 6
 PoS-2:[DT, POS] & PoS-1:NNP & PoS+0:VB => NN                    # From training line 45205, From template 2, Score: +9 -3 = 6
-PoS-1:JJ & PoS+0:VBP => NN                                      # From training line 28662, From template 3, Score: +10 -4 = 6
-PoS-1:[VBP, VBZ] & PoS+0:NN & PoS+1:DT => VBG                   # From training line 36674, From template 6, Score: +11 -5 = 6
+PoS-3:NN & PoS-2:[IN, POS] & PoS-1:JJ & PoS+0:NNP => NN         # From training line 57663, From template 1, Score: +9 -3 = 6
+PoS+0:[JJ, VB] & PoS+1:POS => NN                                # From training line 9152, From template 8, Score: +11 -5 = 6
 PoS+0:EX & PoS+1:IN => RB                                       # From training line 28909, From template 8, Score: +5 -0 = 5
 PoS-1:DT & PoS+0:RB & PoS+1:NNS => JJ                           # From training line 38300, From template 6, Score: +5 -0 = 5
 PoS-2:NN & PoS-1:RB & PoS+0:NNS & PoS+1:IN => VBZ               # From training line 22235, From template 4, Score: +5 -0 = 5
-PoS-2:NNP & PoS-1:VBZ & PoS+0:NN & PoS+1:DT => VBG              # From training line 90885, From template 4, Score: +5 -0 = 5
 PoS-3:',' & PoS-2:CC & PoS-1:NNP & PoS+0:NN => NNP              # From training line 97896, From template 1, Score: +5 -0 = 5
 PoS-1:CC & PoS+0:NN & PoS+1:DT => VB                            # From training line 40185, From template 6, Score: +6 -1 = 5
 PoS-1:JJ & PoS+0:VBZ & PoS+1:IN => NNS                          # From training line 68567, From template 6, Score: +6 -1 = 5
 PoS-1:VBZ & PoS+0:RB & PoS+1:NN & PoS+2:IN => JJ                # From training line 17705, From template 7, Score: +6 -1 = 5
 PoS-1:VBN & PoS+0:WDT => IN                                     # From training line 14140, From template 3, Score: +7 -2 = 5
+PoS-1:[NN, NNS] & PoS+0:IN & PoS+1:VBD => WDT                   # From training line 163353, From template 6, Score: +6 -0 = 6
 PoS-2:VB & PoS-1:NNS & PoS+0:VBP => VB                          # From training line 1801, From template 2, Score: +7 -2 = 5
 PoS-1:VB & PoS+0:WDT & PoS+1:VBZ => IN                          # From training line 69162, From template 6, Score: +4 -0 = 4
 PoS-2:',' & PoS-1:WDT & PoS+0:NNS => VBZ                        # From training line 20607, From template 2, Score: +4 -0 = 4
 PoS-2:NNP & PoS-1:IN & PoS+0:NN & PoS+1:CC & PoS+2:JJ => NNP    # From training line 49354, From template 5, Score: +4 -0 = 4
 PoS-2:NNS & PoS-1:IN & PoS+0:NNP & PoS+1:NNP & PoS+2:CD => NN    # From training line 7355, From template 5, Score: +4 -0 = 4
-PoS+0:IN & PoS+1:VBD => WDT                                     # From training line 3822, From template 8, Score: +6 -2 = 4
+PoS-1:NNP & PoS+0:VBG & PoS+1:NNP => NNP                        # From training line 15587, From template 6, Score: +5 -1 = 4
 PoS-1:SEP & PoS+0:PDT => DT                                     # From training line 32776, From template 3, Score: +6 -2 = 4
-PoS-1:VBN & PoS+0:WDT => IN                                     # From training line 14140, From template 3, Score: +5 -0 = 5
+PoS-2:'``' & PoS-1:NN & PoS+0:POS => ''''''                     # From training line 56472, From template 2, Score: +6 -2 = 4
 PoS-2:NNP & PoS-1:CC & PoS+0:NN & PoS+1:NN => NNP               # From training line 131353, From template 4, Score: +7 -3 = 4
 PoS-3:'.' & PoS-2:SEP & PoS-1:RB & PoS+0:VB => VBP              # From training line 2839, From template 1, Score: +7 -3 = 4
-PoS-3:NNP & PoS-2:CC & PoS-1:NN & PoS+0:NN => NNP               # From training line 131354, From template 1, Score: +7 -3 = 4
 PoS+0:NN & PoS+1:NNPS => NNP                                    # From training line 45391, From template 8, Score: +12 -8 = 4
 PoS+0:DT & PoS+1:RB & PoS+2:VB => RB                            # From training line 91556, From template 9, Score: +3 -0 = 3
 PoS+0:NN & PoS+1:NN & PoS+2:SEP => NNP                          # From training line 836, From template 9, Score: +3 -0 = 3
 PoS-1:',' & PoS+0:RB & PoS+1:PRP & PoS+2:VBD => IN              # From training line 65256, From template 7, Score: +3 -0 = 3
-PoS-1:MD & PoS+0:DT & PoS+1:RB => RB                            # From training line 91556, From template 6, Score: +3 -0 = 3
-PoS-1:NNP & PoS+0:NN & PoS+1:NNS & PoS+2:JJ => NNP              # From training line 61410, From template 7, Score: +3 -0 = 3
 PoS-1:DT & PoS+0:NNP & PoS+1:CC & PoS+2:NN => NN                # From training line 55574, From template 7, Score: +3 -0 = 3
+PoS-1:NNP & PoS+0:NN & PoS+1:JJ & PoS+2:VBD => NNP              # From training line 74508, From template 7, Score: +3 -0 = 3
+PoS-1:NNP & PoS+0:JJ & PoS+1:VBD => NNP                         # From training line 74509, From template 6, Score: +3 -0 = 3
 PoS-1:NNP & PoS+0:NNS & PoS+1:SEP => NNPS                       # From training line 71734, From template 6, Score: +3 -0 = 3
 PoS-1:NNS & PoS+0:NN & PoS+1:JJ & PoS+2:NNS => VBP              # From training line 83588, From template 7, Score: +3 -0 = 3
 PoS-1:NNS & PoS+0:NN & PoS+1:NN & PoS+2:CC => VBP               # From training line 21123, From template 7, Score: +3 -0 = 3
@@ -154,7 +134,9 @@ PoS-1:SEP & PoS+0:RB & PoS+1:NNS & PoS+2:VBP => JJ              # From training 
 PoS-1:TO & PoS+0:VB & PoS+1:',' & PoS+2:NN => NN                # From training line 20681, From template 7, Score: +3 -0 = 3
 PoS-1:VB & PoS+0:RB & PoS+1:VBZ & PoS+2:TO => JJ                # From training line 27481, From template 7, Score: +3 -0 = 3
 PoS-1:VBG & PoS+0:VBN & PoS+1:VBN => VBD                        # From training line 4965, From template 6, Score: +3 -0 = 3
+PoS-1:WRB & PoS+0:JJ & PoS+1:IN => NN                           # From training line 29176, From template 6, Score: +3 -0 = 3
 PoS-2:CD & PoS-1:NNP & PoS+0:NNP & PoS+1:IN & PoS+2:NNP => RB    # From training line 120687, From template 5, Score: +3 -0 = 3
+PoS-1:CD & PoS+0:NNP & PoS+1:RB & PoS+2:IN => NNS               # From training line 120686, From template 7, Score: +3 -0 = 3
 PoS-2:DT & PoS-1:JJ & PoS+0:NNS & PoS+1:NN & PoS+2:NN => NNP    # From training line 110009, From template 5, Score: +3 -0 = 3
 PoS-2:DT & PoS-1:NNS & PoS+0:NN & PoS+1:IN & PoS+2:JJ => VBP    # From training line 32318, From template 5, Score: +3 -0 = 3
 PoS-2:DT & PoS-1:RB & PoS+0:NNP & PoS+1:NNP => JJ               # From training line 81991, From template 4, Score: +3 -0 = 3
@@ -162,22 +144,23 @@ PoS-2:IN & PoS-1:CD & PoS+0:NNP & PoS+1:NNP & PoS+2:',' => NN    # From training
 PoS-2:IN & PoS-1:DT & PoS+0:NNP & PoS+1:RB => NN                # From training line 132365, From template 4, Score: +3 -0 = 3
 PoS-2:IN & PoS-1:DT & PoS+0:VBD & PoS+1:NNP => VBN              # From training line 14340, From template 4, Score: +3 -0 = 3
 PoS-2:IN & PoS-1:NN & PoS+0:NN & PoS+1:NN & PoS+2:'.' => NNP    # From training line 23939, From template 5, Score: +3 -0 = 3
-PoS-2:NNP & PoS-1:JJ & PoS+0:NNS & PoS+1:CC & PoS+2:NNP => NNP    # From training line 128027, From template 5, Score: +3 -0 = 3
-PoS-2:NNP & PoS-1:NNP & PoS+0:NNPS & PoS+1:VBP => NNS           # From training line 20541, From template 4, Score: +3 -0 = 3
-PoS+0:JJ & PoS+1:NNP & PoS+2:CC => NNP                          # From training line 128026, From template 9, Score: +3 -0 = 3
-PoS-1:CD & PoS+0:NNP & PoS+1:RB & PoS+2:IN => NNS               # From training line 120686, From template 7, Score: +3 -0 = 3
-PoS-1:DT & PoS+0:NNP & PoS+1:JJ & PoS+2:NNS => JJ               # From training line 112576, From template 7, Score: +3 -0 = 3
 PoS-1:IN & PoS+0:NN & PoS+1:NNP & PoS+2:NN => NNP               # From training line 23938, From template 7, Score: +3 -0 = 3
-PoS-1:NNP & PoS+0:JJ & PoS+1:NNP => NNP                         # From training line 128026, From template 6, Score: +3 -0 = 3
+PoS-2:NN & PoS-1:NNP & PoS+0:NNP & PoS+1:NNP & PoS+2:CD => JJ    # From training line 72745, From template 5, Score: +3 -0 = 3
+PoS+0:NNP & PoS+1:JJ & PoS+2:NNP => NN                          # From training line 72744, From template 9, Score: +3 -0 = 3
+PoS-2:NNP & PoS-1:JJ & PoS+0:NNS & PoS+1:CC & PoS+2:NNP => NNP    # From training line 128027, From template 5, Score: +3 -0 = 3
+PoS+0:JJ & PoS+1:NNP & PoS+2:CC => NNP                          # From training line 128026, From template 9, Score: +3 -0 = 3
+PoS-1:DT & PoS+0:NNP & PoS+1:JJ & PoS+2:NNS => JJ               # From training line 112576, From template 7, Score: +3 -0 = 3
+PoS-2:NNP & PoS-1:NNP & PoS+0:NNPS & PoS+1:VBP => NNS           # From training line 20541, From template 4, Score: +3 -0 = 3
 PoS-2:NNP & PoS-1:VBZ & PoS+0:VBN & PoS+1:PRP & PoS+2:VBZ => VBD    # From training line 67427, From template 5, Score: +3 -0 = 3
 PoS-2:SEP & PoS-1:DT & PoS+0:NNP & PoS+1:RB & PoS+2:VBZ => NN    # From training line 83460, From template 5, Score: +3 -0 = 3
 PoS-2:SEP & PoS-1:IN & PoS+0:JJ & PoS+1:NN & PoS+2:JJ => NNP    # From training line 93445, From template 5, Score: +3 -0 = 3
-PoS-2:VB & PoS-1:JJ & PoS+0:VBZ & PoS+1:TO => NNS               # From training line 27482, From template 4, Score: +3 -0 = 3
-PoS-2:VBN & PoS-1:TO & PoS+0:JJ & PoS+1:NNS & PoS+2:IN => VB    # From training line 25972, From template 5, Score: +3 -0 = 3
 PoS-2:IN & PoS-1:NNP & PoS+0:NN & PoS+1:[JJ, POS] => NNP        # From training line 57132, From template 4, Score: +10 -3 = 7
+PoS-2:TO & PoS-1:DT & PoS+0:NN & PoS+1:NNP => NNP               # From training line 91080, From template 4, Score: +3 -0 = 3
+PoS-2:VB & PoS-1:JJ & PoS+0:VBZ & PoS+1:TO => NNS               # From training line 27482, From template 4, Score: +3 -0 = 3
+PoS-2:VBG & PoS-1:NN & PoS+0:NNP => NN                          # From training line 105701, From template 2, Score: +3 -0 = 3
+PoS-2:VBN & PoS-1:TO & PoS+0:JJ & PoS+1:NNS & PoS+2:IN => VB    # From training line 25972, From template 5, Score: +3 -0 = 3
 PoS-2:VBP & PoS-1:RB & PoS+0:NN & PoS+1:'.' => VB               # From training line 33950, From template 4, Score: +3 -0 = 3
 PoS-3:CD & PoS-2:IN & PoS-1:RB & PoS+0:NNS => VBZ               # From training line 59559, From template 1, Score: +3 -0 = 3
-PoS-3:DT & PoS-2:CD & PoS-1:CD & PoS+0:NNP => NN                # From training line 92896, From template 1, Score: +3 -0 = 3
 PoS-3:DT & PoS-2:JJ & PoS-1:',' & PoS+0:NNP => JJ               # From training line 76591, From template 1, Score: +3 -0 = 3
 PoS-3:DT & PoS-2:JJ & PoS-1:NNP & PoS+0:NN => NNP               # From training line 110010, From template 1, Score: +3 -0 = 3
 PoS-3:IN & PoS-2:CD & PoS-1:NN & PoS+0:WDT => IN                # From training line 36869, From template 1, Score: +3 -0 = 3
@@ -191,26 +174,28 @@ PoS-1:DT & PoS+0:JJ & PoS+1:VBZ => NN                           # From training 
 PoS-1:JJR & PoS+0:NNP & PoS+1:NNP => JJ                         # From training line 96440, From template 6, Score: +4 -1 = 3
 PoS-1:NNPS & PoS+0:NNP & PoS+1:NNP & PoS+2:NNP => NN            # From training line 12117, From template 7, Score: +4 -1 = 3
 PoS-1:WP & PoS+0:VBZ & PoS+1:VBP => NNS                         # From training line 68510, From template 6, Score: +4 -1 = 3
+PoS-2:CD & PoS-1:NNP & PoS+0:NNP & PoS+1:NNP & PoS+2:'.' => JJ    # From training line 788, From template 5, Score: +4 -1 = 3
+PoS+0:NNP & PoS+1:JJ & PoS+2:NNP => NNS                         # From training line 787, From template 9, Score: +4 -1 = 3
+PoS-3:DT & PoS-2:CD & PoS-1:CD & PoS+0:NNP => NN                # From training line 92896, From template 1, Score: +3 -0 = 3
+PoS-2:IN & PoS-1:DT & PoS+0:JJ & PoS+1:VBD => NN                # From training line 56225, From template 4, Score: +4 -1 = 3
 PoS-2:NN & PoS-1:IN & PoS+0:NNS & PoS+1:DT => VBZ               # From training line 26225, From template 4, Score: +4 -1 = 3
-PoS-2:NN & PoS-1:NNP & PoS+0:NNP & PoS+1:NNP & PoS+2:CD => JJ    # From training line 72745, From template 5, Score: +4 -1 = 3
 PoS-2:POS & PoS-1:JJ & PoS+0:NN & PoS+1:NN & PoS+2:NN => NNP    # From training line 58661, From template 5, Score: +4 -1 = 3
-PoS+0:NNP & PoS+1:JJ & PoS+2:NNP => NN                          # From training line 72744, From template 9, Score: +4 -1 = 3
 PoS-2:RB & PoS-1:TO & PoS+0:VB & PoS+1:'.' => NN                # From training line 28262, From template 4, Score: +4 -1 = 3
 PoS-2:SEP & PoS-1:'``' & PoS+0:WDT => DT                        # From training line 51067, From template 2, Score: +4 -1 = 3
 PoS-2:SEP & PoS-1:IN & PoS+0:NNP & PoS+1:JJ & PoS+2:NN => JJ    # From training line 11298, From template 5, Score: +4 -1 = 3
 PoS-2:WP & PoS-1:VBZ & PoS+0:VBN & PoS+1:TO => VBD              # From training line 4151, From template 4, Score: +4 -1 = 3
 PoS-3:IN & PoS-2:NN & PoS-1:NNS & PoS+0:NN => VBP               # From training line 25319, From template 1, Score: +4 -1 = 3
+PoS-1:IN & PoS+0:VBD => VBN                                     # From training line 22732, From template 3, Score: +5 -2 = 3
+PoS-3:VBD & PoS-2:VBN & PoS-1:IN & PoS+0:VBN => JJ              # From training line 59118, From template 1, Score: +3 -0 = 3
 PoS-1:NNS & PoS+0:IN & PoS+1:RB & PoS+2:VB => WDT               # From training line 26024, From template 7, Score: +5 -2 = 3
 PoS-1:VBD & PoS+0:JJ & PoS+1:VBN => RB                          # From training line 22744, From template 6, Score: +5 -2 = 3
 PoS-2:'PRP$' & PoS-1:NNP & PoS+0:NNP & PoS+1:IN => NN           # From training line 40481, From template 4, Score: +5 -2 = 3
-PoS-2:'``' & PoS-1:NN & PoS+0:POS => ''''''                     # From training line 56472, From template 2, Score: +5 -2 = 3
 PoS-2:CC & PoS-1:JJ & PoS+0:NN & PoS+1:NN & PoS+2:IN => VBG     # From training line 9189, From template 5, Score: +5 -2 = 3
 PoS-2:IN & PoS-1:NNP & PoS+0:NN & PoS+1:',' & PoS+2:NNP => NNP    # From training line 64709, From template 5, Score: +5 -2 = 3
 PoS-2:NNP & PoS-1:',' & PoS+0:NNS & PoS+1:IN => VBZ             # From training line 66941, From template 4, Score: +5 -2 = 3
-PoS-3:NN & PoS-2:IN & PoS-1:JJ & PoS+0:NNP => NN                # From training line 57663, From template 1, Score: +6 -3 = 3
 PoS-3:NN & PoS-2:VBZ & PoS-1:RB & PoS+0:NN => VB                # From training line 670, From template 1, Score: +6 -3 = 3
+PoS-1:VBZ & PoS+0:RB & PoS+1:NN => JJ                           # From training line 39986, From template 6, Score: +6 -2 = 4
 PoS-1:NNS & PoS+0:NN & PoS+1:TO & PoS+2:VB => VBP               # From training line 74025, From template 7, Score: +8 -5 = 3
 PoS-1:VBD & PoS+0:IN & PoS+1:NN & PoS+2:NN => DT                # From training line 44529, From template 7, Score: +8 -5 = 3
 PoS-2:'.' & PoS-1:SEP & PoS+0:NN & PoS+1:CC => NNP              # From training line 42954, From template 4, Score: +8 -5 = 3
 PoS-1:JJ & PoS+0:JJ & PoS+1:',' => NN                           # From training line 7688, From template 6, Score: +9 -6 = 3
-PoS-1:VBZ & PoS+0:RB & PoS+1:NN => JJ                           # From training line 39986, From template 6, Score: +6 -2 = 4

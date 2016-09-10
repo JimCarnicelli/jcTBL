@@ -568,6 +568,10 @@ void jctbl::classifier::train() {
             best_rule->index = (int) rules.size();
             rules.push_back(best_rule);
 
+            // Rack up the count so the caller can tell which templates are most
+            // useful
+            best_rule->from_template->rules_created_from_me++;
+
             // Remove this from the candidates because we'll consider others
             proposed_rules->erase(best_rule->to_string(*this));
 

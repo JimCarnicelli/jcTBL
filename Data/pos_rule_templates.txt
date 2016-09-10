@@ -1,11 +1,17 @@
 # Part of speech rule templates
 
-PoS-3 & PoS-2 & PoS-1 & PoS+0
-        PoS-2 & PoS-1 & PoS+0
-                PoS-1 & PoS+0
-        PoS-2 & PoS-1 & PoS+0 & PoS+1
-        PoS-2 & PoS-1 & PoS+0 & PoS+1 & PoS+2
-                PoS-1 & PoS+0 & PoS+1
-                PoS-1 & PoS+0 & PoS+1 & PoS+2
-                        PoS+0 & PoS+1
-                        PoS+0 & PoS+1 & PoS+2
+PoS-4 & PoS-3 & PoS-2 & PoS-1 & PoS+0
+        PoS-3 & PoS-2 & PoS-1 & PoS+0
+                PoS-2 & PoS-1 & PoS+0
+                        PoS-1 & PoS+0
+        PoS-3 & PoS-2 & PoS-1 & PoS+0 & PoS+1
+                PoS-2 & PoS-1 & PoS+0 & PoS+1
+                        PoS-1 & PoS+0 & PoS+1
+                                PoS+0 & PoS+1
+                PoS-2 & PoS-1 & PoS+0 & PoS+1 & PoS+2
+                        PoS-1 & PoS+0 & PoS+1 & PoS+2
+                                PoS+0 & PoS+1 & PoS+2
+                        PoS-1 & PoS+0 & PoS+1 & PoS+2 & PoS+3
+                                PoS+0 & PoS+1 & PoS+2 & PoS+3
+                        PoS-1 & PoS+0 & PoS+1 & PoS+2 & PoS+3 & PoS+4
+                                PoS+0 & PoS+1 & PoS+2 & PoS+3 & PoS+4

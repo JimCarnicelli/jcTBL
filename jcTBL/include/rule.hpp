@@ -79,6 +79,10 @@ namespace jctbl {
         /// If this is a rule, what template was used to create it?
         rule* from_template = nullptr;
 
+        /// If this is a template, how many successful rules were added that
+        /// originated from this template?
+        int rules_created_from_me = 0;
+
         /// Destructor
         ~rule();
 
