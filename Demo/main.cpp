@@ -261,13 +261,13 @@ int main(int argc, const char * argv[]) {
         // Need to train
 
         // Load and preprocess the training document
-        cout << "- Loading training data\n";
+        cout << now() << "Loading training data\n";
 
         // Training and test data came from here:
         // http://www.cnts.ua.ac.be/conll2000/chunking/
 
         load_training_document(cls, data_path + "pos_train.txt");
-        cout << "- Discover naive guesses\n";
+        cout << now() << "Discover naive guesses\n";
         cls.discover_naive_guesses();
 
         // Output the naive-guesses lexicon
@@ -284,12 +284,12 @@ int main(int argc, const char * argv[]) {
             out.close();
         }
 
-        cout << "- Apply naive guesses\n";
+        cout << now() << "Apply naive guesses\n";
 
         cls.apply_naive_guesses();
 
         double train_baseline = cls.check_fidelity();
-        cout << "- Baseline: " << 100.0 * train_baseline
+        cout << now() << "Baseline: " << 100.0 * train_baseline
             << "% success rate\n";
 
         // Here's where the magic happens
@@ -310,11 +310,11 @@ int main(int argc, const char * argv[]) {
             if (rule_count > latest_rule_count) {
                 latest_rule_count = rule_count;
                 cout << "----------\n";
-                cout << "- There are " << rule_count << " rules\n";
-                cout << "- Best score: " << cls.training_best_score << "\n";
-                cout << "- " << 100.0 * cls.training_current_fidelity
+                cout << now() << "There are " << rule_count << " rules\n";
+                cout << "  - Best score: " << cls.training_best_score << "\n";
+                cout << "  - " << 100.0 * cls.training_current_fidelity
                     << "% fidelity so far\n";
-                cout << "- " << cls.training_rules_being_considered
+                cout << "  - " << cls.training_rules_being_considered
                     << " rules were considered\n";
             }
 
@@ -322,10 +322,10 @@ int main(int argc, const char * argv[]) {
         }
 
         cout << "------------------------\n";
-        cout << "- There are " << cls.rules.size() << " rules total\n";
+        cout << now() << "There are " << cls.rules.size() << " rules total\n";
 
         double train_success = cls.check_fidelity();
-        cout << "- Training set: " << 100.0 * train_success
+        cout << now() << "Training set: " << 100.0 * train_success
             << "% success rate ("
             << 100.0 * (train_success - train_baseline) / train_baseline
             << "% improvement)\n";
@@ -366,22 +366,23 @@ int main(int argc, const char * argv[]) {
 
     }
 
-    cout << "- Loading test data\n";
+    cout << now() << "Loading test data\n";
     load_training_document(cls, data_path + "pos_test.txt");
-    cout << "- Done loading test file\n";
+    cout << now() << "Done loading test file\n";
 
     cls.apply_naive_guesses();
 
     double test_baseline = cls.check_fidelity();
-    cout << "- Baseline: " << 100.0 * test_baseline << "%\n";
+    cout << now() << "Baseline: " << 100.0 * test_baseline << "%\n";
 
     cls.classify_elements();
 
     double test_success = cls.check_fidelity();
-    cout << "- Test set: " << 100.0 * test_success << "% success rate ("
+    cout << now() << "Test set: " << 100.0 * test_success << "% success rate ("
         << 100.0 * (test_success - test_baseline) / test_baseline
         << "% improvement)\n";
 
-    cout << "- Done\n";
+    cout << now() << "Done\n";
+
     return 0;
 }
