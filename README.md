@@ -11,14 +11,19 @@ with improvements
 This C++ code is intended to be used as a static library. The demo program is 
 largely my own hacking to test out what I've built.
 
-I built this using Xcode 7.3.1 on a late 2013 iMac. I'm using the 
-GNU++11 [-std=gnu++11] language dialect and the libc++
+I built this using Xcode 7.3.1 on a late 2013 iMac running 
+[OS X El Capitain](https://en.wikipedia.org/wiki/OS_X_El_Capitan). 
+I'm using the  GNU++11 [-std=gnu++11] language dialect and the libc++
 (LLVM C++ standard library with C++11 support) library. This don't 
 have reliances on Boost or any other libraries outside the 
 [STL](https://en.wikipedia.org/wiki/Standard_Template_Library). 
 I haven't tried compiling this on Windows, Linux, or any other 
 systems, but I see no reason why it wouldn't, given an appropriate 
 makefile.
+
+To run the demo program on a similar OS X system to mine, open jcTBL.xcodeproj 
+in [Xcode](https://en.wikipedia.org/wiki/Xcode). From the Product menu, 
+expand Scheme and choose "jcTLB_Demo". Click the Run button on the toolbar.
 
 The library code can be found in the /jcTBL subdirectory in /include and 
 /source. You'll want to include the libjcTBL.a static library and include 
