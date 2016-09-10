@@ -4,3 +4,9 @@
 Data/_naive_guesses.txt
 
 Data/_rules.txt
+
+*.xcuserstate
+
+jcTBL.xcodeproj/xcuserdata/Jim.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+jcTBL.xcodeproj/xcuserdata/Jim.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
