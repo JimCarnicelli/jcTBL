@@ -69,6 +69,26 @@ accuracy (or increase in number) of training rules devised. I also added
 in many low-level features like early bailing, hashing, and modest caching 
 to optimize speed and memory usage.
 
+One interesting innovation of mine is rule merging. The training algorithm, 
+while studying the proposed rules that meet a minimum score threshold, may 
+find two that can be combined into one rule. In one scenario, rule A is a 
+superset of rule B, meaning what B changes, A already changes, so B gets 
+deleted so as not to create a wasteful duplicate. This really only helps 
+when cls.use_best_rules > 1. The other scenario is when two rules differ 
+only by the value of exactly one "atom" of their predicate (input filters). 
+In that case, one new rule is formed with that atom having the combined 
+values from both rules. Since merging keeps repeating until there's nothing 
+left to merge, these combined rules can acquire very long lists of values. 
+The result, I've found in some PoS training tests, can be a reduction in 
+the number of rules by a third to a half. While merging does increase the 
+time it takes to train, having fewer rules to process can speed up 
+classification at runtime, later. The accuracy of the rules seems about the 
+same, though I found it may be marginally higher or lower than without 
+merging. It seems to ever so slightly improve accuracy when 
+cls.use_best_rules = 1. Here's an example of a merged rule:
+
+    PoS-1:MD & PoS+0:[JJ, NN, NNP, VBN, VBP] => VB 
+
 I purposely decided not to include support for reading and writing files 
 because I didn't want to prejudice you, the developer, as to how and where 
 you should store your own data.
