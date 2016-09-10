@@ -130,8 +130,8 @@ distributed as a stand-alone library for all systems.
 ## License and credit
 
 This code was written entirely by [Jim Carnicelli](http://JimCarnicelli.com). 
-Although I hope someday to earn money using my own creation, I've given this 
-project an [MIT license](https://en.wikipedia.org/wiki/MIT_License), meaning
+I've given this project an 
+[MIT license](https://en.wikipedia.org/wiki/MIT_License), meaning
 you are free to use it pretty much however you want. That said, I would 
 really appreciate it if you'd give credit to my contribution in your derived 
 works. I'd also welcome you to drop me a line about how you are using it 
