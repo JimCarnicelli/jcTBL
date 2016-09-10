@@ -32,6 +32,7 @@
 #include <iostream>
 #include <fstream>
 #include <thread>
+#include <ctime>
 #include "jctbl.hpp"
 
 using namespace std;
@@ -226,6 +227,20 @@ void load_rules(jctbl::classifier& cls, bool templates, const string& path) {
         }
 
     }
+
+}
+
+
+/******************************************************************************/
+string now() {
+    time_t t = time(0);   // get time now
+    struct tm* now = localtime(&t);
+
+    return "[" +
+        to_string(now->tm_hour) + ":" +
+        (now->tm_min < 10 ? "0" : "") + to_string(now->tm_min) + ":" +
+        (now->tm_sec < 10 ? "0" : "") + to_string(now->tm_sec) +
+        "] ";
 
 }
 
