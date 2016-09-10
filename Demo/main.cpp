@@ -236,133 +236,129 @@ int main(int argc, const char * argv[]) {
 
     string data_path = "/Users/Jim/Google Drive/Experiments/jcTBL/Data/";
 
-    if (true) {
+    jctbl::classifier cls;
+    cls.min_corrections_required = 10;
+    cls.training_threads = 4;
+    cls.use_best_rules = 10;
+    cls.use_merging = true;
 
-        jctbl::classifier cls;
-        cls.min_corrections_required = 3;
-        cls.training_threads = 4;
-        cls.use_best_rules = 10;
-        cls.use_merging = true;
+    // Define input and output features
+    cls.add_input_feature("Token");   // Lower-case token
+    cls.add_input_feature("Raw");   // Raw token
+    cls.add_input_feature("ChunkTag");    // Chunk tag
+    cls.add_input_feature("PhraseType");   // Phrase type
+    cls.set_output_feature("PoS");  // Part of speech
 
-        // Define input and output features
-        cls.add_input_feature("Token");   // Lower-case token
-        cls.add_input_feature("Raw");   // Raw token
-        cls.add_input_feature("ChunkTag");    // Chunk tag
-        cls.add_input_feature("PhraseType");   // Phrase type
-        cls.set_output_feature("PoS");  // Part of speech
+    load_rules(cls, true,  data_path + "pos_rule_templates.txt");
 
-        load_rules(cls, true,  data_path + "pos_rule_templates.txt");
+    if (false) {
+        // Already trained
 
-        if (false) {
-            // Already trained
+        load_rules(cls, false, data_path + "pos_rules.txt");
+        load_naive_guesses(cls, data_path + "pos_naive_guesses.txt");
 
-            load_rules(cls, false, data_path + "pos_rules.txt");
-            load_naive_guesses(cls, data_path + "pos_naive_guesses.txt");
+    } else {
+        // Need to train
 
-        } else {
-            // Need to train
+        // Load and preprocess the training document
+        cout << "- Loading training data\n";
+        load_training_document(cls, data_path + "pos_train.txt");
+        cout << "- Discover naive guesses\n";
+        cls.discover_naive_guesses();
 
-            // Load and preprocess the training document
-            cout << "- Loading training data\n";
-            load_training_document(cls, data_path + "pos_train.txt");
-            cout << "- Discover naive guesses\n";
-            cls.discover_naive_guesses();
-
-            // Output the naive-guesses lexicon
-            if (true) {
-                ofstream out(data_path + "_naive_guesses.txt");
-                for (auto it = cls.naive_guesses.begin();
-                    it != cls.naive_guesses.end(); it++
-                ) {
-                    string token = it->first;
-                    string guess = it->second;
-                    out << to_literal(token) << ": " << to_literal(guess)
-                        << "\n";
-                }
-                out.close();
+        // Output the naive-guesses lexicon
+        if (true) {
+            ofstream out(data_path + "_naive_guesses.txt");
+            for (auto it = cls.naive_guesses.begin();
+                it != cls.naive_guesses.end(); it++
+            ) {
+                string token = it->first;
+                string guess = it->second;
+                out << to_literal(token) << ": " << to_literal(guess)
+                    << "\n";
             }
-
-            cout << "- Apply naive guesses\n";
-
-            cls.apply_naive_guesses();
-
-            double train_baseline = cls.check_fidelity();
-            cout << "- Baseline: " << 100.0 * train_baseline
-                << "% success rate\n";
-
-            // Here's where the magic happens
-            thread* t = cls.train_async();
-            t->detach();
-            delete t;
-
-            int latest_rule_count = -1;
-            while (cls.busy_training) {
-                int rule_count = (int) cls.rules.size();
-                if (rule_count > latest_rule_count) {
-                    latest_rule_count = rule_count;
-                    cout << "----------\n";
-                    cout << "- There are " << rule_count << " rules\n";
-                    cout << "- Best score: " << cls.training_best_score << "\n";
-                    cout << "- " << 100.0 * cls.training_current_fidelity
-                        << "% fidelity so far\n";
-                    cout << "- " << cls.training_rules_being_considered
-                        << " rules were considered\n";
-                }
-                this_thread::sleep_for(chrono::milliseconds(100));
-            }
-
-            cout << "------------------------\n";
-            cout << "- There are " << cls.rules.size() << " rules total\n";
-
-            double train_success = cls.check_fidelity();
-            cout << "- Training set: " << 100.0 * train_success
-                << "% success rate ("
-                << 100.0 * (train_success - train_baseline) / train_baseline
-                << "% improvement)\n";
-
-            // Output the discovered rules
-            if (true) {
-                ofstream out(data_path + "_rules.txt");
-                for (auto it = cls.rules.begin(); it != cls.rules.end(); it++) {
-                    jctbl::rule* r = *it;
-
-                    string line = r->to_string(cls);
-                    while (line.size() < 60) line += ' ';
-
-                    out << line
-                        << "    # From training line " << r->first_seen_at + 1
-                        << ", From template " << r->from_template->index + 1
-                        << ", Score: +" << r->good_changes
-                        << " -" << r->bad_changes
-                        << " = " << r->good_changes - r->bad_changes
-                        << "\n";
-                }
-                out.close();
-            }
-
-            cout << "------------------------\n";
-
-            cls.clear_document();
-
+            out.close();
         }
 
-        cout << "- Loading test data\n";
-        load_training_document(cls, data_path + "pos_test.txt");
-        cout << "- Done loading test file\n";
+        cout << "- Apply naive guesses\n";
 
         cls.apply_naive_guesses();
 
-        double test_baseline = cls.check_fidelity();
-        cout << "- Baseline: " << 100.0 * test_baseline << "%\n";
+        double train_baseline = cls.check_fidelity();
+        cout << "- Baseline: " << 100.0 * train_baseline
+            << "% success rate\n";
 
-        cls.classify_elements();
+        // Here's where the magic happens
+        thread* t = cls.train_async();
+        t->detach();
+        delete t;
 
-        double test_success = cls.check_fidelity();
-        cout << "- Test set: " << 100.0 * test_success << "% success rate ("
-            << 100.0 * (test_success - test_baseline) / test_baseline
+        int latest_rule_count = -1;
+        while (cls.busy_training) {
+            int rule_count = (int) cls.rules.size();
+            if (rule_count > latest_rule_count) {
+                latest_rule_count = rule_count;
+                cout << "----------\n";
+                cout << "- There are " << rule_count << " rules\n";
+                cout << "- Best score: " << cls.training_best_score << "\n";
+                cout << "- " << 100.0 * cls.training_current_fidelity
+                    << "% fidelity so far\n";
+                cout << "- " << cls.training_rules_being_considered
+                    << " rules were considered\n";
+            }
+            this_thread::sleep_for(chrono::milliseconds(100));
+        }
+
+        cout << "------------------------\n";
+        cout << "- There are " << cls.rules.size() << " rules total\n";
+
+        double train_success = cls.check_fidelity();
+        cout << "- Training set: " << 100.0 * train_success
+            << "% success rate ("
+            << 100.0 * (train_success - train_baseline) / train_baseline
             << "% improvement)\n";
 
+        // Output the discovered rules
+        if (true) {
+            ofstream out(data_path + "_rules.txt");
+            for (auto it = cls.rules.begin(); it != cls.rules.end(); it++) {
+                jctbl::rule* r = *it;
+
+                string line = r->to_string(cls);
+                while (line.size() < 60) line += ' ';
+
+                out << line
+                    << "    # From training line " << r->first_seen_at + 1
+                    << ", From template " << r->from_template->index + 1
+                    << ", Score: +" << r->good_changes
+                    << " -" << r->bad_changes
+                    << " = " << r->good_changes - r->bad_changes
+                    << "\n";
+            }
+            out.close();
+        }
+
+        cout << "------------------------\n";
+
+        cls.clear_document();
+
     }
+
+    cout << "- Loading test data\n";
+    load_training_document(cls, data_path + "pos_test.txt");
+    cout << "- Done loading test file\n";
+
+    cls.apply_naive_guesses();
+
+    double test_baseline = cls.check_fidelity();
+    cout << "- Baseline: " << 100.0 * test_baseline << "%\n";
+
+    cls.classify_elements();
+
+    double test_success = cls.check_fidelity();
+    cout << "- Test set: " << 100.0 * test_success << "% success rate ("
+        << 100.0 * (test_success - test_baseline) / test_baseline
+        << "% improvement)\n";
 
     cout << "- Done\n";
     return 0;
