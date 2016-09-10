@@ -3,7 +3,7 @@ https://github.com/JimCarnicelli/jcTBL
 # jcTBL
 
 Implementation of Eric Brill's "transformation-based learning" algorithm 
-with several enhancements and lots of inline documentation
+with improvements
 
 
 ## Nuts 'n' bolts
