@@ -89,6 +89,11 @@ cls.use_best_rules = 1. Here's an example of a merged rule:
 
     PoS-1:MD & PoS+0:[JJ, NN, NNP, VBN, VBP] => VB 
 
+One significant benefit of rule merging is that the resulting rules are 
+easier to comprehend. If your goal is to use the rules generated to discover 
+some otherwise invisible pattern in sequential data, Having ten rules merged 
+into one makes that easier.
+
 I purposely decided not to include support for reading and writing files 
 because I didn't want to prejudice you, the developer, as to how and where 
 you should store your own data.
