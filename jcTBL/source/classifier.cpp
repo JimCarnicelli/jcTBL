@@ -296,6 +296,8 @@ void jctbl::classifier::train() {
         //--------------------------------------------------------------------//
         // Propose rules
 
+        training_current_stage = "Proposing rules";
+
         // We'll split this task among multiple threads and wait until they're
         // all done. Since each element can be considered in isolation, we
         // simply apportion the elements evenly among the threads
@@ -392,6 +394,8 @@ void jctbl::classifier::train() {
         //--------------------------------------------------------------------//
         // Evaluate proposed rules
 
+        training_current_stage = "Evaluating rules";
+
         // We'll split this task among multiple threads and wait until they're
         // all done. Since each proposed rule can be considered in isolation, we
         // simply apportion the rules evenly among the threads
@@ -442,6 +446,8 @@ void jctbl::classifier::train() {
 
         //--------------------------------------------------------------------//
         // Merge similar rules
+
+        training_current_stage = "Merging rules";
 
         if (use_merging) {
 
@@ -498,6 +504,8 @@ void jctbl::classifier::train() {
 
         //--------------------------------------------------------------------//
         // From the rules we've considered so far, find the N best
+
+        training_current_stage = "Finding best rule";
 
         if (use_best_rules < 1) use_best_rules = 1;
 

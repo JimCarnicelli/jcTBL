@@ -179,6 +179,11 @@ namespace jctbl {
         /// are from 0 to 1 (100%).
         double training_current_fidelity;
 
+        /// During training, what is the currently active stage?
+        ///
+        /// This gets set during training to allow external monitoring.
+        std::string training_current_stage = "";
+
         /// Destructor
         ~classifier();
 

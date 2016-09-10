@@ -293,8 +293,15 @@ int main(int argc, const char * argv[]) {
         t->detach();
         delete t;
 
+        string current_stage = "";
         int latest_rule_count = -1;
         while (cls.busy_training) {
+
+            if (cls.training_current_stage != current_stage) {
+                cout << "  - " << cls.training_current_stage << "\n";
+                current_stage = cls.training_current_stage;
+            }
+
             int rule_count = (int) cls.rules.size();
             if (rule_count > latest_rule_count) {
                 latest_rule_count = rule_count;
@@ -306,6 +313,7 @@ int main(int argc, const char * argv[]) {
                 cout << "- " << cls.training_rules_being_considered
                     << " rules were considered\n";
             }
+
             this_thread::sleep_for(chrono::milliseconds(100));
         }
 
