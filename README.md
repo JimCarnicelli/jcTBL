@@ -32,7 +32,7 @@ makefile.
 
 To run the demo program on a similar OS X system to mine, open jcTBL.xcodeproj 
 in [Xcode](https://en.wikipedia.org/wiki/Xcode). From the Product menu, 
-expand Scheme and choose "jcTLB_Demo". Click the Run button on the toolbar.
+expand Scheme and choose "jcTBL_Demo". Click the Run button on the toolbar.
 
 
 ## About this project
@@ -46,8 +46,8 @@ I came across
 [Eric Brill's](https://en.wikipedia.org/wiki/Eric_Brill)
 concept of 
 "[transformation-based learning](http://dl.acm.org/citation.cfm?id=1073336.1073342&coll=GUIDE&dl=ACM)"
-(TLB). There are various TLB implementations out there, including
-[fnTLB](https://www.cs.jhu.edu/~rflorian/fntbl/). 
+(TBL). There are various TBL implementations out there, including
+[fnTBL](https://www.cs.jhu.edu/~rflorian/fntbl/). 
 Sadly, I was unable to compile their code and struggled to understand 
 its structure. Moreover, I learn better by doing, so I decided to build 
 my own from scratch using various documents describing the algorithm 
@@ -115,7 +115,7 @@ you should store your own data.
 I've endeavored to make my code solid and especially free of memory leaks, 
 but please do let me know if you find any bugs.
 
-In the spirit of [fnTLB](https://www.cs.jhu.edu/~rflorian/fntbl/), I might 
+In the spirit of [fnTBL](https://www.cs.jhu.edu/~rflorian/fntbl/), I might 
 create a command line wrapper program at some point, but I'll admit I have 
 little desire to right now. That seems like it would take a lot of time to 
 do justice to and might mislead developers about how best to integrate this 
