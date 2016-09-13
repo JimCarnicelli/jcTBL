@@ -32,7 +32,10 @@ makefile.
 
 To run the demo program on a similar OS X system to mine, open jcTBL.xcodeproj 
 in [Xcode](https://en.wikipedia.org/wiki/Xcode). From the Product menu, 
-expand Scheme and choose "jcTBL_Demo". Click the Run button on the toolbar.
+expand Scheme and choose "jcTBL_Demo". Edit Demo/main.cpp, find the 
+main() routine, and change the data_path variable's value to point to 
+the Data folder under the root of your project folder. Click the Run 
+button on the toolbar.
 
 
 ## About this project
